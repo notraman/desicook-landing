@@ -34,33 +34,46 @@ const features = [
 
 const FeatureBoxes = () => {
   return (
-    <section className="py-24 relative">
+    <section className="py-28 md:py-36 relative">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Section title - Origin-inspired */}
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl font-bold text-dc-cream mb-4 tracking-tight">
+            Powerful features for modern cooking
+          </h2>
+          <p className="text-lg text-dc-cream/60 max-w-2xl mx-auto">
+            Everything you need to transform your ingredients into culinary excellence
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="glass glass-hover glass-reflection p-8 space-y-4 group cursor-pointer"
+              className="glass glass-hover glass-reflection p-10 space-y-5 group cursor-pointer ambient-glow"
+              style={{
+                animationDelay: `${index * 0.1}s`
+              }}
             >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl glass flex items-center justify-center text-dc-gold group-hover:scale-110 transition-transform duration-300">
+              {/* Icon - Origin-inspired larger, lighter */}
+              <div className="w-16 h-16 rounded-2xl glass flex items-center justify-center text-dc-gold/90 group-hover:scale-110 group-hover:text-dc-gold transition-all duration-500">
                 {feature.icon}
               </div>
               
               {/* Title */}
-              <h3 className="text-xl font-bold text-dc-cream">
+              <h3 className="text-2xl font-bold text-dc-cream leading-tight tracking-tight">
                 {feature.title}
               </h3>
               
               {/* Description */}
-              <p className="text-dc-cream/70 leading-relaxed">
+              <p className="text-dc-cream/60 leading-relaxed text-lg">
                 {feature.description}
               </p>
               
-              {/* Learn More Link */}
+              {/* Learn More Link - Origin-inspired subtle */}
               <a 
                 href={feature.link}
-                className="inline-flex items-center gap-2 text-dc-gold font-medium group-hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-dc-gold/80 font-medium group-hover:gap-3 group-hover:text-dc-gold transition-all duration-300 text-sm tracking-wide"
               >
                 Learn more
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,17 +1,22 @@
 const RightRecipeCard = () => {
   return (
-    <div className="relative">
-      {/* Faint reflection below */}
+    <div className="relative card-tilt">
+      {/* Enhanced ambient shadow - Origin-inspired layered depth */}
       <div 
-        className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-4 rounded-full"
+        className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-4/5 h-8 rounded-full"
         style={{
-          background: 'radial-gradient(ellipse at center, hsl(var(--dc-gold) / 0.15) 0%, transparent 70%)',
-          filter: 'blur(10px)'
+          background: 'radial-gradient(ellipse at center, hsl(var(--dc-gold) / 0.20) 0%, transparent 70%)',
+          filter: 'blur(20px)'
         }}
       />
       
-      {/* Main Recipe Card */}
-      <div className="glass glass-reflection p-8 space-y-6 transform hover:scale-105 transition-transform duration-500">
+      {/* Ambient glow around card */}
+      <div 
+        className="absolute -inset-8 bg-gradient-to-br from-dc-gold/10 to-dc-burgundy/10 rounded-3xl blur-2xl opacity-50"
+      />
+      
+      {/* Main Recipe Card - Origin-inspired polish */}
+      <div className="glass glass-reflection p-10 space-y-7 relative hover:shadow-2xl transition-all duration-700 hover:-translate-y-2">
         {/* Recipe Header */}
         <div className="space-y-3">
           <h3 className="text-2xl font-bold text-dc-cream">Spiced Chickpea Curry</h3>
