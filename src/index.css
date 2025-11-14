@@ -15,7 +15,7 @@ All colors MUST be HSL.
     --dc-cream: 42 65% 93%;
     --dc-gold: 41 70% 62%;
     
-    /* Glass overlays */
+    /* Glass overlays - Origin-inspired lighter layers */
     --glass-white: 0 0% 100%;
     --glass-border: 0 0% 100%;
     
@@ -33,19 +33,23 @@ All colors MUST be HSL.
     --border: 0 0% 100%;
     --input: 0 0% 100%;
     --ring: 41 70% 62%;
-    --radius: 0.75rem;
+    --radius: 1rem;
     
     /* Gradients */
     --gradient-bg: radial-gradient(circle at 20% 50%, hsl(165 63% 15% / 0.95) 0%, transparent 50%),
                    radial-gradient(circle at 80% 80%, hsl(342 68% 18% / 0.85) 0%, transparent 50%),
                    linear-gradient(135deg, hsl(215 49% 13%) 0%, hsl(165 63% 15%) 100%);
     
-    /* Shadows */
-    --shadow-glass: 0 6px 30px hsl(215 49% 5% / 0.45);
-    --shadow-gold: 0 8px 24px hsl(41 70% 62% / 0.12);
+    /* Shadows - Origin-inspired softer shadows */
+    --shadow-glass: 0 8px 40px hsl(215 49% 5% / 0.35);
+    --shadow-gold: 0 12px 40px hsl(41 70% 62% / 0.15);
+    --shadow-ambient: 0 20px 60px hsl(41 70% 62% / 0.08);
+    --shadow-layered: 0 4px 20px hsl(215 49% 5% / 0.25), 0 12px 50px hsl(215 49% 5% / 0.15);
     
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Transitions - Origin-inspired smooth easing */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 }
 
@@ -65,20 +69,21 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Glass panel utilities */
+  /* Glass panel utilities - Origin-inspired refinement */
   .glass {
-    background: hsl(var(--glass-white) / 0.06);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--glass-border) / 0.10);
+    background: hsl(var(--glass-white) / 0.04);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border) / 0.08);
     border-radius: var(--radius);
     box-shadow: var(--shadow-glass);
     transition: var(--transition-smooth);
   }
   
   .glass-hover:hover {
-    background: hsl(var(--glass-white) / 0.08);
-    transform: translateY(-4px);
+    background: hsl(var(--glass-white) / 0.06);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-layered);
   }
   
   .glass-reflection {
@@ -92,65 +97,109 @@ All colors MUST be HSL.
     top: 0;
     left: 0;
     right: 0;
-    height: 40%;
-    background: radial-gradient(ellipse at center top, hsl(var(--glass-white) / 0.08) 0%, transparent 70%);
+    height: 50%;
+    background: radial-gradient(ellipse at center top, hsl(var(--glass-white) / 0.06) 0%, transparent 80%);
     pointer-events: none;
+    opacity: 0.7;
   }
   
-  /* Button variants */
+  /* Ambient glow effect - Origin-inspired */
+  .ambient-glow {
+    position: relative;
+  }
+  
+  .ambient-glow::after {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(circle at center, hsl(var(--dc-gold) / 0.12) 0%, transparent 60%);
+    filter: blur(40px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .ambient-glow:hover::after {
+    opacity: 1;
+  }
+  
+  /* Button variants - Origin-inspired */
   .btn-gold {
     background: linear-gradient(180deg, hsl(var(--dc-gold)) 0%, hsl(41 65% 55%) 100%);
     color: hsl(var(--dc-burgundy));
     font-weight: 600;
-    padding: 0.875rem 2rem;
-    border-radius: var(--radius);
+    padding: 1rem 2.5rem;
+    border-radius: 3rem;
     box-shadow: var(--shadow-gold);
     transition: var(--transition-smooth);
     border: none;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
   }
   
   .btn-gold:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 32px hsl(41 70% 62% / 0.18);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 16px 48px hsl(41 70% 62% / 0.24);
   }
   
   .btn-glass {
-    background: hsl(var(--glass-white) / 0.06);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--glass-border) / 0.10);
+    background: hsl(var(--glass-white) / 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border) / 0.12);
     color: hsl(var(--dc-cream));
     font-weight: 500;
-    padding: 0.875rem 2rem;
-    border-radius: var(--radius);
+    padding: 1rem 2.5rem;
+    border-radius: 3rem;
     transition: var(--transition-smooth);
+    font-size: 1rem;
+    letter-spacing: -0.01em;
   }
   
   .btn-glass:hover {
     background: hsl(var(--glass-white) / 0.10);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-layered);
   }
   
-  /* Input styles */
+  /* Input styles - Origin-inspired */
   .input-glass {
     background: hsl(var(--glass-white) / 0.04);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--glass-border) / 0.10);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border) / 0.08);
     color: hsl(var(--dc-cream));
-    padding: 0.875rem 1rem;
-    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    border-radius: 3rem;
     transition: var(--transition-smooth);
+    font-size: 1rem;
+    letter-spacing: -0.01em;
   }
   
   .input-glass::placeholder {
-    color: hsl(var(--dc-cream) / 0.5);
+    color: hsl(var(--dc-cream) / 0.4);
   }
   
   .input-glass:focus {
     outline: none;
-    border-color: hsl(var(--dc-gold) / 0.5);
-    box-shadow: 0 0 0 3px hsl(var(--dc-gold) / 0.1);
+    border-color: hsl(var(--dc-gold) / 0.4);
+    box-shadow: 0 0 0 4px hsl(var(--dc-gold) / 0.08);
+    background: hsl(var(--glass-white) / 0.06);
+  }
+  
+  /* Parallax card effect - Origin-inspired */
+  .card-parallax {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .card-tilt {
+    transform: rotateY(-4deg) rotateX(2deg);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-tilt:hover {
+    transform: rotateY(-2deg) rotateX(1deg) translateY(-8px);
   }
 }
 

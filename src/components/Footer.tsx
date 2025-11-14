@@ -2,50 +2,50 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-12 relative">
+    <footer className="py-16 md:py-20 relative">
       <div className="container mx-auto px-6">
-        <div className="glass p-8 md:p-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Logo & Copyright */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full glass flex items-center justify-center border border-dc-gold/30">
-                <svg className="w-5 h-5 text-dc-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="glass p-10 md:p-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Logo & Copyright - Origin-inspired lighter */}
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full glass flex items-center justify-center border border-dc-gold/15">
+                <svg className="w-6 h-6 text-dc-gold/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
               <div>
-                <div className="font-semibold text-dc-cream">DesiCook</div>
-                <div className="text-sm text-dc-cream/60">© {currentYear} DesiCook</div>
+                <div className="font-semibold text-dc-cream tracking-tight">DesiCook</div>
+                <div className="text-sm text-dc-cream/40 tracking-wide">© {currentYear} DesiCook</div>
               </div>
             </div>
             
-            {/* Links */}
-            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
+            {/* Links - Origin-inspired subtle spacing */}
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-10">
               <a 
                 href="#privacy" 
-                className="text-sm text-dc-cream/70 hover:text-dc-cream transition-colors"
+                className="text-sm text-dc-cream/50 hover:text-dc-cream/80 transition-colors tracking-wide"
               >
                 Privacy
               </a>
               <a 
                 href="#terms" 
-                className="text-sm text-dc-cream/70 hover:text-dc-cream transition-colors"
+                className="text-sm text-dc-cream/50 hover:text-dc-cream/80 transition-colors tracking-wide"
               >
                 Terms
               </a>
               <a 
                 href="#contact" 
-                className="text-sm text-dc-cream/70 hover:text-dc-cream transition-colors"
+                className="text-sm text-dc-cream/50 hover:text-dc-cream/80 transition-colors tracking-wide"
               >
                 Contact
               </a>
             </div>
             
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
+            {/* Social Links - Origin-inspired refinement */}
+            <div className="flex items-center gap-3">
               <a 
                 href="#twitter" 
-                className="w-9 h-9 rounded-lg glass flex items-center justify-center text-dc-cream/70 hover:text-dc-cream transition-colors"
+                className="w-10 h-10 rounded-xl glass flex items-center justify-center text-dc-cream/50 hover:text-dc-cream/80 hover:bg-dc-cream/5 transition-all duration-300"
                 aria-label="Twitter"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ const Footer = () => {
               </a>
               <a 
                 href="#instagram" 
-                className="w-9 h-9 rounded-lg glass flex items-center justify-center text-dc-cream/70 hover:text-dc-cream transition-colors"
+                className="w-10 h-10 rounded-xl glass flex items-center justify-center text-dc-cream/50 hover:text-dc-cream/80 hover:bg-dc-cream/5 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
