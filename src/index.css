@@ -8,89 +8,149 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* DesiCook Luxury Color Tokens */
+    --dc-deep-green: 165 63% 15%;
+    --dc-navy: 215 49% 13%;
+    --dc-burgundy: 342 68% 18%;
+    --dc-cream: 42 65% 93%;
+    --dc-gold: 41 70% 62%;
+    
+    /* Glass overlays */
+    --glass-white: 0 0% 100%;
+    --glass-border: 0 0% 100%;
+    
+    /* Semantic tokens */
+    --background: 165 63% 15%;
+    --foreground: 42 65% 93%;
+    --primary: 41 70% 62%;
+    --primary-foreground: 342 68% 18%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 165 63% 15%;
+    --muted: 42 65% 93%;
+    --muted-foreground: 165 63% 15%;
+    --accent: 41 70% 62%;
+    --accent-foreground: 342 68% 18%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 41 70% 62%;
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-bg: radial-gradient(circle at 20% 50%, hsl(165 63% 15% / 0.95) 0%, transparent 50%),
+                   radial-gradient(circle at 80% 80%, hsl(342 68% 18% / 0.85) 0%, transparent 50%),
+                   linear-gradient(135deg, hsl(215 49% 13%) 0%, hsl(165 63% 15%) 100%);
+    
+    /* Shadows */
+    --shadow-glass: 0 6px 30px hsl(215 49% 5% / 0.45);
+    --shadow-gold: 0 8px 24px hsl(41 70% 62% / 0.12);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer base {
+  * {
+    @apply border-border;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer components {
+  /* Glass panel utilities */
+  .glass {
+    background: hsl(var(--glass-white) / 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--glass-border) / 0.10);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-glass);
+    transition: var(--transition-smooth);
+  }
+  
+  .glass-hover:hover {
+    background: hsl(var(--glass-white) / 0.08);
+    transform: translateY(-4px);
+  }
+  
+  .glass-reflection {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glass-reflection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: radial-gradient(ellipse at center top, hsl(var(--glass-white) / 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  
+  /* Button variants */
+  .btn-gold {
+    background: linear-gradient(180deg, hsl(var(--dc-gold)) 0%, hsl(41 65% 55%) 100%);
+    color: hsl(var(--dc-burgundy));
+    font-weight: 600;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-gold);
+    transition: var(--transition-smooth);
+    border: none;
+  }
+  
+  .btn-gold:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 32px hsl(41 70% 62% / 0.18);
+  }
+  
+  .btn-glass {
+    background: hsl(var(--glass-white) / 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--glass-border) / 0.10);
+    color: hsl(var(--dc-cream));
+    font-weight: 500;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-glass:hover {
+    background: hsl(var(--glass-white) / 0.10);
+    transform: translateY(-2px);
+  }
+  
+  /* Input styles */
+  .input-glass {
+    background: hsl(var(--glass-white) / 0.04);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--glass-border) / 0.10);
+    color: hsl(var(--dc-cream));
+    padding: 0.875rem 1rem;
+    border-radius: var(--radius);
+    transition: var(--transition-smooth);
+  }
+  
+  .input-glass::placeholder {
+    color: hsl(var(--dc-cream) / 0.5);
+  }
+  
+  .input-glass:focus {
+    outline: none;
+    border-color: hsl(var(--dc-gold) / 0.5);
+    box-shadow: 0 0 0 3px hsl(var(--dc-gold) / 0.1);
   }
 }
 
