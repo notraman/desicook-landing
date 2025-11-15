@@ -44,3 +44,5 @@ CREATE POLICY "Users can delete their own favorites"
 CREATE INDEX IF NOT EXISTS favorites_user_id_idx ON public.favorites(user_id);
 CREATE INDEX IF NOT EXISTS favorites_recipe_id_idx ON public.favorites(recipe_id);
 
+
+

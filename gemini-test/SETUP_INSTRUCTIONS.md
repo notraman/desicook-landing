@@ -63,3 +63,5 @@ node index.js
 
 The `.env` file is already in `.gitignore` at the project root. It contains your private API key.
 
+
+

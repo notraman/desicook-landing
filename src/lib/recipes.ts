@@ -148,7 +148,12 @@ export async function getAllRecipes(): Promise<Recipe[]> {
       .order('rating', { ascending: false, nullsFirst: false });
 
     if (error) {
-      console.warn('Failed to fetch recipes from Supabase, using static data:', error);
+      // Check if table doesn't exist (404/PGRST205 error)
+      if (error.code === 'PGRST205' || error.code === '42P01' || error.message?.includes('does not exist') || error.message?.includes('NOT_FOUND')) {
+        console.warn('⚠️ Recipes table does not exist. Using static data. Run migration: supabase/migrations/001_create_recipes.sql');
+      } else {
+        console.warn('Failed to fetch recipes from Supabase, using static data:', error);
+      }
       return recipesData.map(formatStaticRecipe);
     }
 

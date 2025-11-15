@@ -113,3 +113,5 @@ if (typeof window !== 'undefined') {
   console.log('💡 Run testDatabase() in console to diagnose database issues');
 }
 
+
+

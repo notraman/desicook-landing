@@ -66,3 +66,5 @@ This Supabase Edge Function generates recipes using Gemini AI based on provided 
 
 The function handles CORS preflight requests automatically. All responses include proper CORS headers.
 
+
+

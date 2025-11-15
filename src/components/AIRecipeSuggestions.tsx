@@ -187,3 +187,5 @@ export const AIRecipeSuggestions = ({ ingredients, onClose }: AIRecipeSuggestion
   );
 };
 
+
+
