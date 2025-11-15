@@ -1,0 +1,248 @@
+/**
+ * Recipe service - fetches recipes from Supabase database
+ * Falls back to static JSON if Supabase is unavailable
+ */
+
+import { supabase } from '@/lib/supabaseClient';
+import recipesData from '@/data/recipes.json';
+
+export interface Recipe {
+  id: string;
+  title: string;
+  description: string | null;
+  image_url: string | null;
+  ingredients: string[];
+  ingredients_arr: string[];
+  steps: string[];
+  time_min: number | null;
+  difficulty: 'Easy' | 'Medium' | 'Hard' | null;
+  rating: number | null;
+  servings: number | null;
+  cuisine: string | null;
+  tags: string[];
+  nutrition: {
+    calories?: number;
+    protein?: number;
+    carbs?: number;
+    fat?: number;
+  } | null;
+}
+
+/**
+ * Convert Supabase recipe to frontend format
+ */
+function formatRecipe(dbRecipe: any): Recipe {
+  return {
+    id: dbRecipe.id,
+    title: dbRecipe.title,
+    description: dbRecipe.description || null,
+    image_url: dbRecipe.image_url || null,
+    ingredients: dbRecipe.ingredients_arr || [],
+    ingredients_arr: dbRecipe.ingredients_arr || [],
+    steps: dbRecipe.steps || [],
+    time_min: dbRecipe.time_min,
+    difficulty: dbRecipe.difficulty,
+    rating: dbRecipe.rating ? Number(dbRecipe.rating) : null,
+    servings: dbRecipe.servings,
+    cuisine: dbRecipe.cuisine,
+    tags: dbRecipe.tags || [],
+    nutrition: dbRecipe.nutrition as Recipe['nutrition'],
+  };
+}
+
+/**
+ * Convert Recipe to component-compatible format (with image and time)
+ */
+export function toComponentRecipe(recipe: Recipe): any {
+  return {
+    ...recipe,
+    image: recipe.image_url || '/placeholder.svg',
+    time: recipe.time_min || 0,
+  };
+}
+
+/**
+ * Convert static JSON recipe to frontend format
+ */
+function formatStaticRecipe(jsonRecipe: any): Recipe {
+  return {
+    id: jsonRecipe.id,
+    title: jsonRecipe.title,
+    description: jsonRecipe.description || null,
+    image_url: jsonRecipe.image || null,
+    ingredients: jsonRecipe.ingredients || [],
+    ingredients_arr: jsonRecipe.ingredients || [],
+    steps: jsonRecipe.steps || [],
+    time_min: jsonRecipe.time || null,
+    difficulty: jsonRecipe.difficulty || null,
+    rating: jsonRecipe.rating || null,
+    servings: jsonRecipe.servings || null,
+    cuisine: jsonRecipe.cuisine || null,
+    tags: jsonRecipe.tags || [],
+    nutrition: jsonRecipe.nutrition || null,
+  };
+}
+
+/**
+ * Fetch all recipes from Supabase
+ * Falls back to static JSON if Supabase fails
+ */
+export async function getAllRecipes(): Promise<Recipe[]> {
+  try {
+    const { data, error } = await supabase
+      .from('recipes')
+      .select('*')
+      .order('rating', { ascending: false, nullsFirst: false });
+
+    if (error) {
+      console.warn('Failed to fetch recipes from Supabase, using static data:', error);
+      return recipesData.map(formatStaticRecipe);
+    }
+
+    if (!data || data.length === 0) {
+      console.warn('No recipes found in Supabase, using static data');
+      return recipesData.map(formatStaticRecipe);
+    }
+
+    return data.map(formatRecipe);
+  } catch (error) {
+    console.error('Error fetching recipes:', error);
+    return recipesData.map(formatStaticRecipe);
+  }
+}
+
+/**
+ * Fetch a single recipe by ID
+ */
+export async function getRecipeById(id: string): Promise<Recipe | null> {
+  try {
+    const { data, error } = await supabase
+      .from('recipes')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error || !data) {
+      // Fallback to static data
+      const staticRecipe = recipesData.find(r => r.id === id);
+      return staticRecipe ? formatStaticRecipe(staticRecipe) : null;
+    }
+
+    return formatRecipe(data);
+  } catch (error) {
+    console.error('Error fetching recipe:', error);
+    const staticRecipe = recipesData.find(r => r.id === id);
+    return staticRecipe ? formatStaticRecipe(staticRecipe) : null;
+  }
+}
+
+/**
+ * Search recipes by ingredients using the Edge Function
+ * Falls back to client-side matching if API fails
+ */
+export async function searchRecipesByIngredients(
+  ingredients: string[],
+  limit: number = 20,
+  offset: number = 0
+): Promise<{
+  results: Array<Recipe & { score: number; matched: string[]; total_ingredients: number }>;
+  total: number;
+}> {
+  const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+  
+  if (!SUPABASE_URL) {
+    console.warn('SUPABASE_URL not configured, using client-side matching');
+    return { results: [], total: 0 };
+  }
+
+  try {
+    const response = await fetch(
+      `${SUPABASE_URL}/functions/v1/search-by-ingredients`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
+          ingredients,
+          limit,
+          offset,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    
+    // Format results to match Recipe interface
+    const results = data.results.map((result: any) => ({
+      id: result.recipe_id,
+      title: result.title,
+      description: null,
+      image_url: result.image_url,
+      ingredients: [], // Will be populated from ingredients_arr if needed
+      ingredients_arr: [], // Will be fetched separately if needed
+      steps: [],
+      time_min: result.time_min,
+      difficulty: result.difficulty,
+      rating: result.rating,
+      servings: null,
+      cuisine: result.cuisine,
+      tags: [],
+      nutrition: null,
+      score: result.score,
+      matched: result.matched || [],
+      total_ingredients: result.total_ingredients || 0,
+    }));
+
+    return {
+      results,
+      total: data.total || 0,
+    };
+  } catch (error) {
+    console.error('Error searching recipes:', error);
+    // Fallback: return empty results (client-side matching can be used as backup)
+    return { results: [], total: 0 };
+  }
+}
+
+/**
+ * Get all unique ingredients from Supabase
+ * Falls back to static data if Supabase fails
+ */
+export async function getAllIngredients(): Promise<string[]> {
+  try {
+    const { data, error } = await supabase
+      .from('ingredients')
+      .select('name')
+      .order('name');
+
+    if (error || !data || data.length === 0) {
+      // Fallback to static data
+      const ingredientSet = new Set<string>();
+      recipesData.forEach((recipe) => {
+        recipe.ingredients.forEach((ing) => {
+          ingredientSet.add(ing.toLowerCase().trim());
+        });
+      });
+      return Array.from(ingredientSet).sort();
+    }
+
+    return data.map(item => item.name).sort();
+  } catch (error) {
+    console.error('Error fetching ingredients:', error);
+    // Fallback to static data
+    const ingredientSet = new Set<string>();
+    recipesData.forEach((recipe) => {
+      recipe.ingredients.forEach((ing) => {
+        ingredientSet.add(ing.toLowerCase().trim());
+      });
+    });
+    return Array.from(ingredientSet).sort();
+  }
+}
+
