@@ -134,43 +134,29 @@ function calculateMatchScore(
 export async function matchRecipes(
   selectedIngredients: string[]
 ): Promise<Array<Recipe & { matchScore: number; matchPercentage: number }>> {
-  // Try API search first if ingredients are provided
+  // Try API search first if ingredients are provided (with timeout)
   if (selectedIngredients.length > 0) {
     try {
-      const { results } = await searchRecipesByIngredients(selectedIngredients, 100);
+      // Use Promise.race to add timeout
+      const searchPromise = searchRecipesByIngredients(selectedIngredients, 100);
+      const timeoutPromise = new Promise<{ results: []; total: 0 }>((_, reject) => 
+        setTimeout(() => reject(new Error('Search timeout')), 3000)
+      );
+      
+      const { results } = await Promise.race([searchPromise, timeoutPromise]);
       
       if (results.length > 0) {
-        // Fetch full recipe details for results
-        const recipes = await getRecipes();
-        const recipeMap = new Map(recipes.map(r => [r.id, r]));
-        
-        return results.map(result => {
-          const fullRecipe = recipeMap.get(result.id) || {
-            id: result.id,
-            title: result.title,
-            description: null,
-            image_url: result.image_url,
-            ingredients: [],
-            ingredients_arr: [],
-            steps: [],
-            time_min: result.time_min,
-            difficulty: result.difficulty,
-            rating: result.rating,
-            servings: null,
-            cuisine: result.cuisine,
-            tags: [],
-            nutrition: null,
-          };
-          
-          return {
-            ...fullRecipe,
-            matchScore: result.score,
-            matchPercentage: Math.round(result.score * 100),
-          };
-        });
+        // Use results directly - they already have the necessary data
+        // No need to fetch all recipes again
+        return results.map(result => ({
+          ...result,
+          matchScore: result.score,
+          matchPercentage: Math.round(result.score * 100),
+        }));
       }
     } catch (error) {
-      console.warn('API search failed, using client-side matching:', error);
+      // Silently fall through to client-side matching
+      console.debug('API search unavailable, using client-side matching');
     }
   }
 

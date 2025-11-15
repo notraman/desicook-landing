@@ -5,6 +5,7 @@
 
 import { supabase } from '@/lib/supabaseClient';
 import recipesData from '@/data/recipes.json';
+import { getRecipeImageUrlEnhanced } from './recipeImages';
 
 export interface Recipe {
   id: string;
@@ -100,9 +101,13 @@ function formatRecipe(dbRecipe: SupabaseRecipeRow): Recipe {
  * Convert Recipe to component-compatible format (with image and time)
  */
 export function toComponentRecipe(recipe: Recipe): ComponentRecipe {
+  // Use existing image_url if available, otherwise use fast placeholder
+  // Don't use slow Unsplash Source API - it's deprecated and very slow
+  const imageUrl = recipe.image_url || '/placeholder.svg';
+  
   return {
     ...recipe,
-    image: recipe.image_url || '/placeholder.svg',
+    image: imageUrl,
     time: recipe.time_min || 0,
   };
 }
@@ -204,6 +209,10 @@ export async function searchRecipesByIngredients(
   }
 
   try {
+    // Add timeout to prevent hanging
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+    
     const response = await fetch(
       `${SUPABASE_URL}/functions/v1/search-by-ingredients`,
       {
@@ -217,8 +226,11 @@ export async function searchRecipesByIngredients(
           limit,
           offset,
         }),
+        signal: controller.signal,
       }
     );
+    
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       throw new Error(`API error: ${response.status}`);
@@ -267,7 +279,11 @@ export async function searchRecipesByIngredients(
       total: data.total || 0,
     };
   } catch (error) {
-    console.error('Error searching recipes:', error);
+    if (error instanceof Error && error.name === 'AbortError') {
+      console.warn('Search API timeout, using client-side matching');
+    } else {
+      console.error('Error searching recipes:', error);
+    }
     // Fallback: return empty results (client-side matching can be used as backup)
     return { results: [], total: 0 };
   }
