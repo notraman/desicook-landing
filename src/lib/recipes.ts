@@ -120,7 +120,9 @@ function formatStaticRecipe(jsonRecipe: StaticRecipe): Recipe {
     ingredients_arr: jsonRecipe.ingredients || [],
     steps: jsonRecipe.steps || [],
     time_min: jsonRecipe.time || null,
-    difficulty: jsonRecipe.difficulty || null,
+    difficulty: (jsonRecipe.difficulty === 'Easy' || jsonRecipe.difficulty === 'Medium' || jsonRecipe.difficulty === 'Hard') 
+      ? jsonRecipe.difficulty 
+      : null,
     rating: jsonRecipe.rating || null,
     servings: jsonRecipe.servings || null,
     cuisine: jsonRecipe.cuisine || null,
@@ -238,7 +240,7 @@ export async function searchRecipesByIngredients(
       total_ingredients: number;
     }
     
-    const results = (data.results as SearchResult[]).map((result) => ({
+    const results = (data.results as SearchResult[]).map((result): Recipe & { score: number; matched: string[]; total_ingredients: number } => ({
       id: result.recipe_id,
       title: result.title,
       description: null,
@@ -247,7 +249,9 @@ export async function searchRecipesByIngredients(
       ingredients_arr: [], // Will be fetched separately if needed
       steps: [],
       time_min: result.time_min,
-      difficulty: result.difficulty,
+      difficulty: (result.difficulty === 'Easy' || result.difficulty === 'Medium' || result.difficulty === 'Hard')
+        ? result.difficulty
+        : null,
       rating: result.rating,
       servings: null,
       cuisine: result.cuisine,
