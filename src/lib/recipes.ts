@@ -29,9 +29,55 @@ export interface Recipe {
 }
 
 /**
+ * Supabase recipe row type
+ */
+interface SupabaseRecipeRow {
+  id: string;
+  title: string;
+  description: string | null;
+  image_url: string | null;
+  ingredients_arr: string[];
+  steps: string[];
+  time_min: number | null;
+  difficulty: 'Easy' | 'Medium' | 'Hard' | null;
+  rating: number | null;
+  servings: number | null;
+  cuisine: string | null;
+  tags: string[];
+  nutrition: Record<string, unknown> | null;
+}
+
+/**
+ * Static JSON recipe type
+ */
+interface StaticRecipe {
+  id: string;
+  title: string;
+  description?: string;
+  image?: string;
+  ingredients: string[];
+  steps: string[];
+  time?: number;
+  difficulty?: string;
+  rating?: number;
+  servings?: number;
+  cuisine?: string;
+  tags?: string[];
+  nutrition?: Record<string, unknown>;
+}
+
+/**
+ * Component-compatible recipe type
+ */
+export interface ComponentRecipe extends Recipe {
+  image: string;
+  time: number;
+}
+
+/**
  * Convert Supabase recipe to frontend format
  */
-function formatRecipe(dbRecipe: any): Recipe {
+function formatRecipe(dbRecipe: SupabaseRecipeRow): Recipe {
   return {
     id: dbRecipe.id,
     title: dbRecipe.title,
@@ -53,7 +99,7 @@ function formatRecipe(dbRecipe: any): Recipe {
 /**
  * Convert Recipe to component-compatible format (with image and time)
  */
-export function toComponentRecipe(recipe: Recipe): any {
+export function toComponentRecipe(recipe: Recipe): ComponentRecipe {
   return {
     ...recipe,
     image: recipe.image_url || '/placeholder.svg',
@@ -64,7 +110,7 @@ export function toComponentRecipe(recipe: Recipe): any {
 /**
  * Convert static JSON recipe to frontend format
  */
-function formatStaticRecipe(jsonRecipe: any): Recipe {
+function formatStaticRecipe(jsonRecipe: StaticRecipe): Recipe {
   return {
     id: jsonRecipe.id,
     title: jsonRecipe.title,
@@ -179,7 +225,20 @@ export async function searchRecipesByIngredients(
     const data = await response.json();
     
     // Format results to match Recipe interface
-    const results = data.results.map((result: any) => ({
+    interface SearchResult {
+      recipe_id: string;
+      title: string;
+      image_url: string | null;
+      time_min: number | null;
+      difficulty: string | null;
+      rating: number | null;
+      cuisine: string | null;
+      score: number;
+      matched: string[];
+      total_ingredients: number;
+    }
+    
+    const results = (data.results as SearchResult[]).map((result) => ({
       id: result.recipe_id,
       title: result.title,
       description: null,
@@ -232,7 +291,11 @@ export async function getAllIngredients(): Promise<string[]> {
       return Array.from(ingredientSet).sort();
     }
 
-    return data.map(item => item.name).sort();
+    interface IngredientRow {
+      name: string;
+    }
+    
+    return (data as IngredientRow[]).map(item => item.name).sort();
   } catch (error) {
     console.error('Error fetching ingredients:', error);
     // Fallback to static data
