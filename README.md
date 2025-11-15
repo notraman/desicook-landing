@@ -92,9 +92,10 @@ Create a `.env` file in the project root with the following variables:
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 
-# Image API Keys
-UNSPLASH_ACCESS_KEY=your-unsplash-access-key
-PEXELS_API_KEY=your-pexels-api-key  # Optional, used as fallback
+# Image API Keys (all free/public domain image sources)
+UNSPLASH_ACCESS_KEY=your-unsplash-access-key  # Free tier: 50 requests/hour
+PEXELS_API_KEY=your-pexels-api-key  # Free tier: 200 requests/hour
+PIXABAY_API_KEY=your-pixabay-api-key  # Optional, free tier available
 
 # Recipe Data Path (optional, defaults to src/data/recipes.json)
 RECIPES_JSON_PATH=src/data/recipes.json
@@ -105,6 +106,12 @@ RECIPES_JSON_PATH=src/data/recipes.json
 - Use `.env` file and add it to `.gitignore`
 - The `SUPABASE_SERVICE_ROLE_KEY` has admin access - keep it secure
 - Use environment variables in CI/CD pipelines (GitHub Secrets, etc.)
+
+**📸 Image Sources (All Free & Public Domain):**
+- **Unsplash**: Free, high-quality photos. License: [Unsplash License](https://unsplash.com/license) - free for commercial use
+- **Pexels**: Free stock photos. License: [Pexels License](https://www.pexels.com/license/) - free for commercial use
+- **Pixabay**: Free images. License: [Pixabay License](https://pixabay.com/service/license/) - free for commercial use
+- All images used are from public domain or free-to-use sources with permissive licenses
 
 ### Database Migration
 
@@ -153,10 +160,13 @@ node etl/seed_recipes.js --full --concurrency=5
 
 The ETL script performs the following steps for each recipe:
 
-1. **Image Fetching**:
-   - Searches Unsplash using recipe title, main ingredients, and cuisine
-   - Falls back to Pexels if Unsplash yields no results
+1. **Image Fetching** (all free/public domain sources):
+   - Searches Unsplash (primary) - free, high-quality photos
+   - Falls back to Pexels - free stock photos
+   - Falls back to Pixabay - free images (if API key provided)
+   - Final fallback: Public domain placeholder images
    - Downloads and uploads images to Supabase Storage (`recipes-images` bucket)
+   - All images are from free, publicly available sources with permissive licenses
 
 2. **Recipe Insertion**:
    - Inserts recipe into `recipes` table
@@ -242,13 +252,11 @@ The ETL script includes:
 - Error handling for API rate limit responses
 - Retry logic for transient failures
 
-**Unsplash Rate Limits**:
-- Free tier: 50 requests/hour
-- Paid tiers: Higher limits available
-
-**Pexels Rate Limits**:
-- Free tier: 200 requests/hour
-- Paid tiers: Higher limits available
+**Image API Rate Limits (All Free Tiers)**:
+- **Unsplash**: 50 requests/hour (free tier)
+- **Pexels**: 200 requests/hour (free tier)
+- **Pixabay**: 100 requests/hour (free tier)
+- All sources provide free API access with generous rate limits
 
 ### Troubleshooting
 
@@ -273,14 +281,13 @@ The ETL script includes:
 
 ### License & Attribution
 
-**Unsplash Images**:
-- Unsplash images are free to use under the [Unsplash License](https://unsplash.com/license)
-- Attribution is appreciated but not required
-- Consider adding attribution in your app UI if desired
-
-**Pexels Images**:
-- Pexels images are free to use under the [Pexels License](https://www.pexels.com/license/)
-- Attribution is appreciated but not required
+**All Images Are Free & Public Domain**:
+- **Unsplash**: Free under [Unsplash License](https://unsplash.com/license) - no attribution required
+- **Pexels**: Free under [Pexels License](https://www.pexels.com/license/) - no attribution required
+- **Pixabay**: Free under [Pixabay License](https://pixabay.com/service/license/) - no attribution required
+- All images are from publicly available, free-to-use sources
+- Attribution is appreciated but not legally required for any of these sources
+- Images are downloaded and stored in your Supabase Storage for fast access
 
 ### Next Steps
 

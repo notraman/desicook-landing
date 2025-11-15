@@ -23,6 +23,7 @@ const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 const PEXELS_API_KEY = process.env.PEXELS_API_KEY;
+const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY; // Optional free tier available
 const RECIPES_JSON_PATH = process.env.RECIPES_JSON_PATH || 'src/data/recipes.json';
 
 // Parse command line arguments
@@ -38,9 +39,9 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
   process.exit(1);
 }
 
-if (!UNSPLASH_ACCESS_KEY && !PEXELS_API_KEY) {
-  console.error('❌ Error: At least one of UNSPLASH_ACCESS_KEY or PEXELS_API_KEY is required');
-  process.exit(1);
+// At least one free image API key is recommended, but we can use public domain fallbacks
+if (!UNSPLASH_ACCESS_KEY && !PEXELS_API_KEY && !PIXABAY_API_KEY) {
+  console.warn('⚠️  Warning: No image API keys provided. Will use public domain image fallbacks only.');
 }
 
 // Initialize Supabase client with service role key (admin access)
@@ -59,6 +60,8 @@ const stats = {
   skipped: 0,
   imagesUnsplash: 0,
   imagesPexels: 0,
+  imagesPixabay: 0,
+  imagesPublicDomain: 0,
   imagesFailed: 0
 };
 
@@ -187,6 +190,70 @@ async function searchPexels(query) {
     return null;
   } catch (error) {
     console.warn(`⚠️  Pexels search failed for "${query}":`, error.message);
+    return null;
+  }
+}
+
+/**
+ * Search Pixabay for recipe image (free tier available)
+ */
+async function searchPixabay(query) {
+  if (!PIXABAY_API_KEY) return null;
+  
+  try {
+    const url = `https://pixabay.com/api/?key=${PIXABAY_API_KEY}&q=${encodeURIComponent(query)}&image_type=photo&orientation=horizontal&safesearch=true&per_page=5`;
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      if (response.status === 429) {
+        console.warn(`⚠️  Pixabay rate limit hit for query: ${query}`);
+        return null;
+      }
+      throw new Error(`Pixabay API error: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (data.hits && data.hits.length > 0) {
+      // Prefer higher resolution images
+      const bestImage = data.hits.sort((a, b) => 
+        (b.imageWidth * b.imageHeight) - (a.imageWidth * a.imageHeight)
+      )[0];
+      
+      return bestImage.largeImageURL || bestImage.webformatURL;
+    }
+    
+    return null;
+  } catch (error) {
+    console.warn(`⚠️  Pixabay search failed for "${query}":`, error.message);
+    return null;
+  }
+}
+
+/**
+ * Get a public domain placeholder image (final fallback)
+ * Uses free, no-API-key-required services
+ */
+async function getPublicDomainImage(query) {
+  try {
+    // Use Lorem Picsum (completely free, no API key required)
+    // Generate a deterministic seed based on query for consistency
+    const seed = Math.abs(query.toLowerCase().split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
+    const width = 800;
+    const height = 600;
+    
+    // Lorem Picsum - free, public domain images, no API key needed
+    const placeholderUrl = `https://picsum.photos/seed/${seed}/${width}/${height}`;
+    
+    // Verify the image is accessible
+    const response = await fetch(placeholderUrl, { method: 'HEAD' });
+    if (response.ok) {
+      return placeholderUrl;
+    }
+    
+    return null;
+  } catch (error) {
+    console.warn(`⚠️  Public domain image fallback failed for "${query}":`, error.message);
     return null;
   }
 }
@@ -325,26 +392,46 @@ async function processRecipe(recipe, index, total) {
     for (const keyword of keywords) {
       console.log(`  🔍 Searching image for: "${keyword}"`);
       
-      // Try Unsplash first
+      // Try Unsplash first (free, high quality)
       let imageUrlCandidate = await searchUnsplash(keyword);
       if (imageUrlCandidate) {
         stats.imagesUnsplash++;
-        console.log(`  ✅ Found image on Unsplash`);
+        console.log(`  ✅ Found image on Unsplash (free, public domain)`);
         imageUrl = imageUrlCandidate;
         break;
       }
       
-      // Fallback to Pexels
+      // Fallback to Pexels (free, public domain)
       imageUrlCandidate = await searchPexels(keyword);
       if (imageUrlCandidate) {
         stats.imagesPexels++;
-        console.log(`  ✅ Found image on Pexels (fallback)`);
+        console.log(`  ✅ Found image on Pexels (free, public domain)`);
+        imageUrl = imageUrlCandidate;
+        break;
+      }
+      
+      // Fallback to Pixabay (free tier available)
+      imageUrlCandidate = await searchPixabay(keyword);
+      if (imageUrlCandidate) {
+        stats.imagesPixabay++;
+        console.log(`  ✅ Found image on Pixabay (free, public domain)`);
         imageUrl = imageUrlCandidate;
         break;
       }
       
       // Small delay to respect rate limits
       await new Promise(resolve => setTimeout(resolve, 200));
+    }
+    
+    // Final fallback: Use public domain placeholder if no API found images
+    if (!imageUrl) {
+      console.log(`  🔄 Trying public domain image fallback...`);
+      const publicDomainUrl = await getPublicDomainImage(keywords[0] || recipe.title);
+      if (publicDomainUrl) {
+        stats.imagesPublicDomain++;
+        console.log(`  ✅ Using public domain placeholder image`);
+        imageUrl = publicDomainUrl;
+      }
     }
     
     if (!imageUrl) {
@@ -506,9 +593,11 @@ async function main() {
   console.log(`✅ Inserted:        ${stats.inserted}`);
   console.log(`⏭️  Skipped:         ${stats.skipped}`);
   console.log(`❌ Failed:          ${stats.failed}`);
-  console.log(`\n📸 Image Statistics:`);
+  console.log(`\n📸 Image Statistics (all free/public domain):`);
   console.log(`   Unsplash:        ${stats.imagesUnsplash}`);
-  console.log(`   Pexels (fallback): ${stats.imagesPexels}`);
+  console.log(`   Pexels:          ${stats.imagesPexels}`);
+  console.log(`   Pixabay:         ${stats.imagesPixabay}`);
+  console.log(`   Public Domain:   ${stats.imagesPublicDomain}`);
   console.log(`   Failed:          ${stats.imagesFailed}`);
   console.log('='.repeat(50));
   
