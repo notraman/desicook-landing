@@ -1,0 +1,597 @@
+[
+  {
+    "title": "Spiced Chickpea Curry",
+    "description": "A hearty and flavorful Indian curry made with chickpeas, tomatoes, and aromatic spices. Perfect for a vegetarian meal.",
+    "time": 25,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "servings": 4,
+    "cuisine": "Indian",
+    "tags": ["vegetarian", "vegan", "indian", "curry"],
+    "ingredients": ["chickpeas", "tomatoes", "coconut milk", "garam masala", "ginger", "garlic", "onion", "turmeric"],
+    "steps": [
+      "Heat oil in a large pan over medium heat",
+      "Add chopped onions and sauté until golden",
+      "Add ginger, garlic, and spices",
+      "Stir in tomatoes and cook until soft",
+      "Add chickpeas and coconut milk",
+      "Simmer for 15 minutes until flavors meld"
+    ],
+    "nutrition": {
+      "calories": 342,
+      "protein": 12,
+      "carbs": 45,
+      "fat": 12
+    }
+  },
+  {
+    "title": "Chicken Tikka Masala",
+    "description": "Creamy and aromatic Indian curry with tender chicken pieces in a rich tomato-based sauce.",
+    "time": 45,
+    "difficulty": "Medium",
+    "rating": 4.9,
+    "servings": 4,
+    "cuisine": "Indian",
+    "tags": ["indian", "chicken", "curry"],
+    "ingredients": ["chicken", "tomatoes", "cream", "garam masala", "ginger", "garlic", "onion", "yogurt"],
+    "steps": [
+      "Marinate chicken in yogurt and spices",
+      "Grill or pan-fry chicken",
+      "Make tomato-based sauce",
+      "Add cream and spices",
+      "Simmer chicken in sauce"
+    ],
+    "nutrition": {
+      "calories": 425,
+      "protein": 32,
+      "carbs": 18,
+      "fat": 24
+    }
+  },
+  {
+    "title": "Creamy Tomato Basil Pasta",
+    "description": "Classic Italian pasta dish with fresh tomatoes, basil, and cream. Simple yet delicious.",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "servings": 3,
+    "cuisine": "Italian",
+    "tags": ["italian", "pasta", "vegetarian"],
+    "ingredients": ["pasta", "tomatoes", "basil", "garlic", "olive oil", "cream", "parmesan"],
+    "steps": [
+      "Cook pasta according to package directions",
+      "Heat olive oil and sauté garlic",
+      "Add tomatoes and cook until soft",
+      "Stir in cream and basil",
+      "Toss with pasta and parmesan"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 15,
+      "carbs": 58,
+      "fat": 22
+    }
+  },
+  {
+    "title": "Thai Green Curry",
+    "description": "Aromatic and spicy Thai curry with coconut milk, green curry paste, and your choice of protein.",
+    "time": 30,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "servings": 4,
+    "cuisine": "Thai",
+    "tags": ["thai", "curry", "spicy"],
+    "ingredients": ["chicken", "green curry paste", "coconut milk", "eggplant", "basil", "fish sauce", "lime"],
+    "steps": [
+      "Heat curry paste in a pan",
+      "Add coconut milk and bring to a simmer",
+      "Add chicken and cook through",
+      "Add vegetables and simmer",
+      "Season with fish sauce and lime"
+    ],
+    "nutrition": {
+      "calories": 420,
+      "protein": 28,
+      "carbs": 22,
+      "fat": 26
+    }
+  },
+  {
+    "title": "Lemon Herb Grilled Chicken",
+    "description": "Juicy grilled chicken marinated with fresh lemon, herbs, and olive oil. Perfect for summer grilling.",
+    "time": 30,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "servings": 4,
+    "cuisine": "Mediterranean",
+    "tags": ["chicken", "grilled", "healthy", "protein"],
+    "ingredients": ["chicken breast", "lemon", "rosemary", "thyme", "garlic", "olive oil", "salt", "pepper"],
+    "steps": [
+      "Marinate chicken with lemon, herbs, and olive oil",
+      "Preheat grill to medium-high",
+      "Grill chicken for 6-7 minutes per side",
+      "Rest for 5 minutes before serving"
+    ],
+    "nutrition": {
+      "calories": 245,
+      "protein": 35,
+      "carbs": 2,
+      "fat": 10
+    }
+  },
+  {
+    "title": "Vegetable Stir Fry",
+    "description": "Quick and healthy Asian-style stir fry with crisp vegetables and savory sauce.",
+    "time": 15,
+    "difficulty": "Easy",
+    "rating": 4.5,
+    "servings": 2,
+    "cuisine": "Asian",
+    "tags": ["vegetarian", "vegan", "asian", "quick"],
+    "ingredients": ["broccoli", "carrots", "bell peppers", "soy sauce", "ginger", "garlic", "sesame oil"],
+    "steps": [
+      "Heat sesame oil in a wok",
+      "Add ginger and garlic, stir-fry for 30 seconds",
+      "Add vegetables and cook until crisp-tender",
+      "Season with soy sauce and serve"
+    ],
+    "nutrition": {
+      "calories": 120,
+      "protein": 4,
+      "carbs": 18,
+      "fat": 4
+    }
+  },
+  {
+    "title": "Classic Beef Tacos",
+    "description": "Traditional Mexican tacos with seasoned ground beef, fresh toppings, and warm tortillas.",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.9,
+    "servings": 4,
+    "cuisine": "Mexican",
+    "tags": ["mexican", "beef", "quick"],
+    "ingredients": ["ground beef", "tortillas", "onion", "cilantro", "lime", "cumin", "chili powder", "cheese"],
+    "steps": [
+      "Brown ground beef with spices",
+      "Warm tortillas",
+      "Fill with beef and toppings",
+      "Garnish with cilantro and lime"
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": 22,
+      "carbs": 28,
+      "fat": 14
+    }
+  },
+  {
+    "title": "Mushroom Risotto",
+    "description": "Creamy Italian risotto with sautéed mushrooms, finished with butter and parmesan cheese.",
+    "time": 40,
+    "difficulty": "Medium",
+    "rating": 4.6,
+    "servings": 3,
+    "cuisine": "Italian",
+    "tags": ["italian", "vegetarian", "comfort"],
+    "ingredients": ["arborio rice", "mushrooms", "onion", "white wine", "parmesan", "butter", "vegetable broth"],
+    "steps": [
+      "Sauté mushrooms and set aside",
+      "Cook onion until translucent",
+      "Add rice and toast for 2 minutes",
+      "Add wine and stir until absorbed",
+      "Gradually add broth, stirring constantly",
+      "Finish with butter and parmesan"
+    ],
+    "nutrition": {
+      "calories": 385,
+      "protein": 10,
+      "carbs": 52,
+      "fat": 14
+    }
+  },
+  {
+    "title": "Mediterranean Quinoa Bowl",
+    "description": "Healthy and colorful bowl with quinoa, fresh vegetables, feta cheese, and Mediterranean flavors.",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.7,
+    "servings": 2,
+    "cuisine": "Mediterranean",
+    "tags": ["vegetarian", "healthy", "mediterranean", "bowl"],
+    "ingredients": ["quinoa", "cucumber", "tomatoes", "feta", "olives", "olive oil", "lemon", "herbs"],
+    "steps": [
+      "Cook quinoa according to package",
+      "Dice vegetables",
+      "Mix quinoa with vegetables",
+      "Top with feta and olives",
+      "Drizzle with olive oil and lemon"
+    ],
+    "nutrition": {
+      "calories": 380,
+      "protein": 14,
+      "carbs": 42,
+      "fat": 18
+    }
+  },
+  {
+    "title": "Pad Thai",
+    "description": "Authentic Thai stir-fried noodles with shrimp, eggs, and a perfect balance of sweet, sour, and savory flavors.",
+    "time": 20,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "servings": 3,
+    "cuisine": "Thai",
+    "tags": ["thai", "noodles", "seafood"],
+    "ingredients": ["rice noodles", "shrimp", "eggs", "bean sprouts", "peanuts", "lime", "fish sauce", "tamarind"],
+    "steps": [
+      "Soak noodles until pliable",
+      "Stir-fry shrimp and set aside",
+      "Scramble eggs in the same pan",
+      "Add noodles and sauce",
+      "Toss with vegetables and serve"
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": 24,
+      "carbs": 68,
+      "fat": 16
+    }
+  },
+  {
+    "title": "Greek Salad",
+    "description": "Fresh and vibrant salad with tomatoes, cucumbers, olives, feta cheese, and a simple olive oil dressing.",
+    "time": 10,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "servings": 4,
+    "cuisine": "Mediterranean",
+    "tags": ["vegetarian", "salad", "mediterranean", "quick"],
+    "ingredients": ["tomatoes", "cucumber", "red onion", "feta", "olives", "olive oil", "oregano", "lemon"],
+    "steps": [
+      "Dice tomatoes and cucumber",
+      "Slice red onion",
+      "Combine vegetables",
+      "Top with feta and olives",
+      "Dress with olive oil and lemon"
+    ],
+    "nutrition": {
+      "calories": 180,
+      "protein": 6,
+      "carbs": 12,
+      "fat": 14
+    }
+  },
+  {
+    "title": "Teriyaki Salmon",
+    "description": "Pan-seared salmon glazed with homemade teriyaki sauce, served over steamed rice.",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.8,
+    "servings": 4,
+    "cuisine": "Japanese",
+    "tags": ["seafood", "japanese", "healthy"],
+    "ingredients": ["salmon fillets", "soy sauce", "honey", "ginger", "garlic", "sesame seeds", "rice"],
+    "steps": [
+      "Make teriyaki sauce",
+      "Marinate salmon",
+      "Pan-sear salmon skin-side down",
+      "Glaze with teriyaki sauce",
+      "Serve over rice"
+    ],
+    "nutrition": {
+      "calories": 380,
+      "protein": 34,
+      "carbs": 32,
+      "fat": 12
+    }
+  },
+  {
+    "title": "Chicken Biryani",
+    "description": "Fragrant basmati rice layered with spiced chicken, saffron, and aromatic spices. A celebration dish.",
+    "time": 60,
+    "difficulty": "Hard",
+    "rating": 4.9,
+    "servings": 6,
+    "cuisine": "Indian",
+    "tags": ["indian", "chicken", "rice", "spicy"],
+    "ingredients": ["basmati rice", "chicken", "yogurt", "saffron", "onions", "ginger", "garlic", "spices"],
+    "steps": [
+      "Marinate chicken in yogurt and spices",
+      "Parboil rice with saffron",
+      "Layer chicken and rice",
+      "Cook on dum (steam) for 30 minutes"
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": 28,
+      "carbs": 58,
+      "fat": 18
+    }
+  },
+  {
+    "title": "Margherita Pizza",
+    "description": "Classic Italian pizza with fresh tomato sauce, mozzarella, and basil. Simple perfection.",
+    "time": 30,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "servings": 4,
+    "cuisine": "Italian",
+    "tags": ["italian", "pizza", "vegetarian"],
+    "ingredients": ["pizza dough", "tomato sauce", "mozzarella", "basil", "olive oil", "garlic"],
+    "steps": [
+      "Preheat oven to 475°F",
+      "Roll out dough",
+      "Top with sauce and cheese",
+      "Bake for 12-15 minutes",
+      "Garnish with fresh basil"
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": 14,
+      "carbs": 42,
+      "fat": 12
+    }
+  },
+  {
+    "title": "Korean Bibimbap",
+    "description": "Colorful Korean rice bowl with beef, vegetables, fried egg, and gochujang sauce.",
+    "time": 35,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "servings": 2,
+    "cuisine": "Korean",
+    "tags": ["korean", "beef", "bowl"],
+    "ingredients": ["rice", "beef", "eggs", "spinach", "carrots", "mushrooms", "gochujang", "sesame oil"],
+    "steps": [
+      "Cook rice",
+      "Prepare vegetables separately",
+      "Cook beef with soy sauce",
+      "Fry egg",
+      "Arrange in bowl and serve"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 22,
+      "carbs": 58,
+      "fat": 16
+    }
+  },
+  {
+    "title": "Lentil Soup",
+    "description": "Hearty and nutritious soup made with lentils, vegetables, and warming spices.",
+    "time": 30,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "servings": 4,
+    "cuisine": "Middle Eastern",
+    "tags": ["vegetarian", "vegan", "soup", "healthy"],
+    "ingredients": ["lentils", "onion", "carrots", "celery", "garlic", "cumin", "lemon", "vegetable broth"],
+    "steps": [
+      "Sauté vegetables",
+      "Add lentils and broth",
+      "Simmer for 25 minutes",
+      "Season with cumin and lemon"
+    ],
+    "nutrition": {
+      "calories": 220,
+      "protein": 14,
+      "carbs": 38,
+      "fat": 2
+    }
+  },
+  {
+    "title": "Shrimp Scampi",
+    "description": "Classic Italian-American dish with shrimp, garlic, white wine, and butter over pasta.",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.8,
+    "servings": 3,
+    "cuisine": "Italian",
+    "tags": ["seafood", "italian", "pasta"],
+    "ingredients": ["shrimp", "pasta", "garlic", "white wine", "butter", "lemon", "parsley", "red pepper flakes"],
+    "steps": [
+      "Cook pasta",
+      "Sauté shrimp and garlic",
+      "Add wine and reduce",
+      "Toss with pasta and butter",
+      "Garnish with parsley and lemon"
+    ],
+    "nutrition": {
+      "calories": 420,
+      "protein": 28,
+      "carbs": 48,
+      "fat": 12
+    }
+  },
+  {
+    "title": "Beef Stroganoff",
+    "description": "Rich and creamy Russian dish with tender beef strips, mushrooms, and sour cream sauce.",
+    "time": 35,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "servings": 4,
+    "cuisine": "Russian",
+    "tags": ["russian", "beef", "comfort"],
+    "ingredients": ["beef strips", "mushrooms", "sour cream", "onion", "beef broth", "flour", "butter", "egg noodles"],
+    "steps": [
+      "Brown beef strips and set aside",
+      "Sauté mushrooms and onions",
+      "Add flour and broth to make sauce",
+      "Return beef and simmer",
+      "Stir in sour cream and serve over noodles"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 35,
+      "carbs": 32,
+      "fat": 22
+    }
+  },
+  {
+    "title": "Fish Tacos",
+    "description": "Light and fresh tacos with crispy white fish, cabbage slaw, and zesty toppings.",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.7,
+    "servings": 4,
+    "cuisine": "Mexican",
+    "tags": ["seafood", "mexican", "healthy"],
+    "ingredients": ["white fish", "tortillas", "cabbage", "lime", "cilantro", "avocado", "sour cream"],
+    "steps": [
+      "Season and pan-fry fish",
+      "Warm tortillas",
+      "Shred cabbage for slaw",
+      "Assemble tacos with fish and toppings",
+      "Drizzle with lime and sour cream"
+    ],
+    "nutrition": {
+      "calories": 280,
+      "protein": 24,
+      "carbs": 28,
+      "fat": 8
+    }
+  },
+  {
+    "title": "Caesar Salad",
+    "description": "Classic Caesar salad with crisp romaine, homemade dressing, parmesan, and croutons.",
+    "time": 15,
+    "difficulty": "Easy",
+    "rating": 4.5,
+    "servings": 4,
+    "cuisine": "Italian",
+    "tags": ["salad", "italian", "classic"],
+    "ingredients": ["romaine lettuce", "parmesan", "croutons", "anchovies", "lemon", "garlic", "olive oil", "egg"],
+    "steps": [
+      "Wash and chop romaine",
+      "Make Caesar dressing",
+      "Toss lettuce with dressing",
+      "Top with parmesan and croutons"
+    ],
+    "nutrition": {
+      "calories": 220,
+      "protein": 8,
+      "carbs": 12,
+      "fat": 16
+    }
+  },
+  {
+    "title": "Vegetable Lasagna",
+    "description": "Layered pasta dish with vegetables, ricotta, mozzarella, and tomato sauce. Comfort food at its finest.",
+    "time": 60,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "servings": 6,
+    "cuisine": "Italian",
+    "tags": ["vegetarian", "italian", "baking"],
+    "ingredients": ["lasagna noodles", "ricotta", "mozzarella", "spinach", "zucchini", "tomato sauce", "basil"],
+    "steps": [
+      "Cook lasagna noodles",
+      "Layer with vegetables and cheese",
+      "Repeat layers",
+      "Bake at 375°F for 45 minutes"
+    ],
+    "nutrition": {
+      "calories": 385,
+      "protein": 18,
+      "carbs": 42,
+      "fat": 16
+    }
+  },
+  {
+    "title": "French Onion Soup",
+    "description": "Rich and savory soup with caramelized onions, beef broth, and melted gruyere cheese.",
+    "time": 50,
+    "difficulty": "Medium",
+    "rating": 4.6,
+    "servings": 4,
+    "cuisine": "French",
+    "tags": ["french", "soup", "comfort"],
+    "ingredients": ["onions", "beef broth", "butter", "white wine", "thyme", "gruyere", "bread"],
+    "steps": [
+      "Caramelize onions slowly",
+      "Deglaze with wine",
+      "Add broth and thyme",
+      "Simmer for 30 minutes",
+      "Top with bread and cheese, broil"
+    ],
+    "nutrition": {
+      "calories": 285,
+      "protein": 12,
+      "carbs": 28,
+      "fat": 14
+    }
+  },
+  {
+    "title": "BBQ Pulled Pork",
+    "description": "Slow-cooked pork shoulder with BBQ sauce, perfect for sandwiches and gatherings.",
+    "time": 240,
+    "difficulty": "Medium",
+    "rating": 4.9,
+    "servings": 6,
+    "cuisine": "American",
+    "tags": ["bbq", "pork", "slow-cooked"],
+    "ingredients": ["pork shoulder", "bbq sauce", "brown sugar", "paprika", "garlic", "onion", "buns"],
+    "steps": [
+      "Rub pork with spices",
+      "Slow cook for 4 hours",
+      "Shred the meat",
+      "Mix with BBQ sauce",
+      "Serve on buns"
+    ],
+    "nutrition": {
+      "calories": 450,
+      "protein": 32,
+      "carbs": 38,
+      "fat": 18
+    }
+  },
+  {
+    "title": "Chocolate Chip Cookies",
+    "description": "Classic homemade cookies with melty chocolate chips. Perfect for any occasion.",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.9,
+    "servings": 24,
+    "cuisine": "American",
+    "tags": ["dessert", "baking", "sweet"],
+    "ingredients": ["flour", "butter", "sugar", "eggs", "chocolate chips", "vanilla", "baking soda"],
+    "steps": [
+      "Cream butter and sugars",
+      "Add eggs and vanilla",
+      "Mix in dry ingredients",
+      "Fold in chocolate chips",
+      "Bake at 375°F for 10-12 minutes"
+    ],
+    "nutrition": {
+      "calories": 150,
+      "protein": 2,
+      "carbs": 18,
+      "fat": 8
+    }
+  },
+  {
+    "title": "Beef Burgers",
+    "description": "Juicy homemade burgers with all the classic toppings. Perfect for grilling season.",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.8,
+    "servings": 4,
+    "cuisine": "American",
+    "tags": ["beef", "american", "grilled"],
+    "ingredients": ["ground beef", "burger buns", "lettuce", "tomato", "onion", "cheese", "pickles"],
+    "steps": [
+      "Form beef into patties",
+      "Season and grill or pan-fry",
+      "Toast buns",
+      "Assemble with toppings"
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": 28,
+      "carbs": 32,
+      "fat": 28
+    }
+  }
+]
+
