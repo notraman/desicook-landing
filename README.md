@@ -59,11 +59,11 @@ npm run preview
 
 ---
 
-## 🖼️ Screenshots (Add your images here)
+## 🖼️ Screenshots
 
+<img width="1844" height="863" alt="Screenshot 2025-11-15 164319" src="https://github.com/user-attachments/assets/9b836472-9d9f-4f24-b30d-5db8bc150a94" />
+<img width="1554" height="779" alt="Screenshot 2025-11-15 164559 - Copy (2)" src="https://github.com/user-attachments/assets/8bcfcf61-4a0e-46d7-bb35-ba19bbc13bea" />
 
-<img width="1753" height="752" alt="Screenshot 2025-11-15 164614" src="https://github.com/user-attachments/assets/738f7005-0505-43fb-9c66-10702534ab14" />
-<img width="1753" height="752" alt="Screenshot 2025-11-15 164614" src="https://github.com/user-attachments/assets/a6ca641e-1e17-4c96-af5f-a9659f6d4063" />
 
 
 
