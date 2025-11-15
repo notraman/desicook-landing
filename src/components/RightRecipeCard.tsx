@@ -1,22 +1,22 @@
 const RightRecipeCard = () => {
   return (
-    <div className="relative card-tilt">
-      {/* Enhanced ambient shadow - Origin-inspired layered depth */}
+    <div className="relative card-tilt card-reflection">
+      {/* Enhanced 3D shadow - Origin-style depth */}
       <div 
-        className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-4/5 h-8 rounded-full"
+        className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-5/6 h-12 rounded-full"
         style={{
-          background: 'radial-gradient(ellipse at center, hsl(var(--dc-gold) / 0.20) 0%, transparent 70%)',
-          filter: 'blur(20px)'
+          background: 'radial-gradient(ellipse at center, hsl(var(--dc-gold) / 0.25) 0%, transparent 70%)',
+          filter: 'blur(30px)'
         }}
       />
       
       {/* Ambient glow around card */}
       <div 
-        className="absolute -inset-8 bg-gradient-to-br from-dc-gold/10 to-dc-burgundy/10 rounded-3xl blur-2xl opacity-50"
+        className="absolute -inset-12 bg-gradient-to-br from-dc-gold/8 to-dc-burgundy/8 rounded-3xl blur-3xl opacity-40"
       />
       
-      {/* Main Recipe Card - Origin-inspired polish */}
-      <div className="glass glass-reflection p-10 space-y-7 relative hover:shadow-2xl transition-all duration-700 hover:-translate-y-2">
+      {/* Main Recipe Card - Origin-grade polish */}
+      <div className="glass glass-reflection p-10 space-y-6 relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
         {/* Recipe Header */}
         <div className="space-y-3">
           <h3 className="text-2xl font-bold text-dc-cream">Spiced Chickpea Curry</h3>

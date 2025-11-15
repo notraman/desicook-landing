@@ -223,12 +223,6 @@ const Home = () => {
         {/* Enhanced Hero Search Section */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 mb-12 sm:mb-16">
           <div className="text-center mb-8 sm:mb-12">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass glass-hover mb-6 sm:mb-8 animate-fade-up hover:scale-105 transition-transform">
-              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-dc-gold animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-dc-cream/90">AI-Powered Recipe Discovery</span>
-            </div>
-            
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-dc-cream mb-6 sm:mb-8 tracking-tight leading-[1.1] animate-fade-up px-4">
               Cook Smarter,<br />

@@ -58,6 +58,10 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -69,15 +73,30 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Glass panel utilities - Origin-inspired refinement */
+  /* Glass panel utilities - Origin-grade refinement */
   .glass {
     background: hsl(var(--glass-white) / 0.04);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid hsl(var(--glass-border) / 0.08);
     border-radius: var(--radius);
     box-shadow: var(--shadow-glass);
-    transition: var(--transition-smooth);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--glass-white) / 0.1) 0%, transparent 50%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.3;
   }
   
   .glass-hover:hover {
@@ -91,16 +110,17 @@ All colors MUST be HSL.
     overflow: hidden;
   }
   
-  .glass-reflection::before {
+  .glass-reflection::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 50%;
-    background: radial-gradient(ellipse at center top, hsl(var(--glass-white) / 0.06) 0%, transparent 80%);
+    background: radial-gradient(ellipse at center top, hsl(var(--glass-white) / 0.08) 0%, transparent 80%);
     pointer-events: none;
-    opacity: 0.7;
+    opacity: 0.6;
+    border-radius: inherit;
   }
   
   /* Ambient glow effect - Origin-inspired */
@@ -123,7 +143,7 @@ All colors MUST be HSL.
     opacity: 1;
   }
   
-  /* Button variants - Origin-inspired */
+  /* Button variants - Origin-grade refinement */
   .btn-gold {
     background: linear-gradient(180deg, hsl(var(--dc-gold)) 0%, hsl(41 65% 55%) 100%);
     color: hsl(var(--dc-burgundy));
@@ -131,10 +151,21 @@ All colors MUST be HSL.
     padding: 1rem 2.5rem;
     border-radius: 3rem;
     box-shadow: var(--shadow-gold);
-    transition: var(--transition-smooth);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     font-size: 1rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-gold::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
   
   .btn-gold:hover {
@@ -142,18 +173,22 @@ All colors MUST be HSL.
     box-shadow: 0 16px 48px hsl(41 70% 62% / 0.24);
   }
   
+  .btn-gold:hover::before {
+    opacity: 1;
+  }
+  
   .btn-glass {
     background: hsl(var(--glass-white) / 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid hsl(var(--glass-border) / 0.12);
     color: hsl(var(--dc-cream));
     font-weight: 500;
     padding: 1rem 2.5rem;
     border-radius: 3rem;
-    transition: var(--transition-smooth);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
   }
   
   .btn-glass:hover {
@@ -162,18 +197,19 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-layered);
   }
   
-  /* Input styles - Origin-inspired */
+  /* Input styles - Origin-grade luxury */
   .input-glass {
     background: hsl(var(--glass-white) / 0.04);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid hsl(var(--glass-border) / 0.08);
     color: hsl(var(--dc-cream));
-    padding: 1rem 1.25rem;
-    border-radius: 3rem;
-    transition: var(--transition-smooth);
+    padding: 1.125rem 1.5rem;
+    border-radius: 0.875rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
+    width: 100%;
   }
   
   .input-glass::placeholder {
@@ -182,24 +218,94 @@ All colors MUST be HSL.
   
   .input-glass:focus {
     outline: none;
-    border-color: hsl(var(--dc-gold) / 0.4);
-    box-shadow: 0 0 0 4px hsl(var(--dc-gold) / 0.08);
+    border-color: hsl(var(--dc-gold) / 0.5);
+    box-shadow: 0 0 0 4px hsl(var(--dc-gold) / 0.12), 0 0 20px hsl(var(--dc-gold) / 0.15);
     background: hsl(var(--glass-white) / 0.06);
   }
   
-  /* Parallax card effect - Origin-inspired */
+  .input-glass:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .input-glass:not(:disabled) {
+    cursor: text;
+  }
+  
+  /* Parallax card effect - Origin-grade 3D */
   .card-parallax {
     transform-style: preserve-3d;
-    perspective: 1000px;
+    perspective: 1200px;
   }
   
   .card-tilt {
-    transform: rotateY(-4deg) rotateX(2deg);
+    transform: rotateY(-1.5deg) rotateX(1deg);
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
   }
   
   .card-tilt:hover {
-    transform: rotateY(-2deg) rotateX(1deg) translateY(-8px);
+    transform: rotateY(-0.5deg) rotateX(0.5deg) translateY(-12px);
+  }
+  
+  /* Card reflection - Origin-style */
+  .card-reflection {
+    position: relative;
+  }
+  
+  .card-reflection::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(1.2) scaleY(0.3);
+    width: 80%;
+    height: 30px;
+    background: linear-gradient(to bottom, hsl(var(--dc-gold) / 0.15) 0%, transparent 100%);
+    filter: blur(20px);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  /* Scroll reveal animation */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-up {
+    animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  /* Spotlight effect */
+  .spotlight {
+    position: relative;
+  }
+  
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: -60px;
+    background: radial-gradient(circle at center, hsl(var(--dc-gold) / 0.08) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: -1;
+    opacity: 0.6;
+  }
+  
+  /* Scrollbar hide utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 

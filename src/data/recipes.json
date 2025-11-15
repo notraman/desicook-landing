@@ -1,0 +1,1031 @@
+[
+  {
+    "id": "recipe-001",
+    "title": "Spiced Chickpea Curry",
+    "image": "/placeholder.svg",
+    "time": 25,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["chickpeas", "tomatoes", "coconut milk", "garam masala", "ginger", "garlic", "onion", "turmeric"],
+    "steps": [
+      "Heat oil in a large pan over medium heat",
+      "Add chopped onions and sauté until golden",
+      "Add ginger, garlic, and spices",
+      "Stir in tomatoes and cook until soft",
+      "Add chickpeas and coconut milk",
+      "Simmer for 15 minutes until flavors meld"
+    ],
+    "nutrition": {
+      "calories": 342,
+      "protein": 12
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "vegan", "indian", "curry"],
+    "cuisine": "Indian"
+  },
+  {
+    "id": "recipe-002",
+    "title": "Creamy Tomato Basil Pasta",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["pasta", "tomatoes", "basil", "garlic", "olive oil", "cream", "parmesan"],
+    "steps": [
+      "Cook pasta according to package directions",
+      "Heat olive oil and sauté garlic",
+      "Add tomatoes and cook until soft",
+      "Stir in cream and basil",
+      "Toss with pasta and parmesan"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 15
+    },
+    "servings": 3,
+    "tags": ["italian", "pasta", "vegetarian"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-003",
+    "title": "Lemon Herb Grilled Chicken",
+    "image": "/placeholder.svg",
+    "time": 30,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "ingredients": ["chicken breast", "lemon", "rosemary", "thyme", "garlic", "olive oil", "salt", "pepper"],
+    "steps": [
+      "Marinate chicken with lemon, herbs, and olive oil",
+      "Preheat grill to medium-high",
+      "Grill chicken for 6-7 minutes per side",
+      "Rest for 5 minutes before serving"
+    ],
+    "nutrition": {
+      "calories": 245,
+      "protein": 35
+    },
+    "servings": 4,
+    "tags": ["chicken", "grilled", "healthy", "protein"],
+    "cuisine": "Mediterranean"
+  },
+  {
+    "id": "recipe-004",
+    "title": "Vegetable Stir Fry",
+    "image": "/placeholder.svg",
+    "time": 15,
+    "difficulty": "Easy",
+    "rating": 4.5,
+    "ingredients": ["broccoli", "carrots", "bell peppers", "soy sauce", "ginger", "garlic", "sesame oil"],
+    "steps": [
+      "Heat sesame oil in a wok",
+      "Add ginger and garlic, stir-fry for 30 seconds",
+      "Add vegetables and cook until crisp-tender",
+      "Season with soy sauce and serve"
+    ],
+    "nutrition": {
+      "calories": 120,
+      "protein": 4
+    },
+    "servings": 2,
+    "tags": ["vegetarian", "vegan", "asian", "quick"],
+    "cuisine": "Asian"
+  },
+  {
+    "id": "recipe-005",
+    "title": "Classic Beef Tacos",
+    "image": "/placeholder.svg",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.9,
+    "ingredients": ["ground beef", "tortillas", "onion", "cilantro", "lime", "cumin", "chili powder", "cheese"],
+    "steps": [
+      "Brown ground beef with spices",
+      "Warm tortillas",
+      "Fill with beef and toppings",
+      "Garnish with cilantro and lime"
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": 22
+    },
+    "servings": 4,
+    "tags": ["mexican", "beef", "quick"],
+    "cuisine": "Mexican"
+  },
+  {
+    "id": "recipe-006",
+    "title": "Mushroom Risotto",
+    "image": "/placeholder.svg",
+    "time": 40,
+    "difficulty": "Medium",
+    "rating": 4.6,
+    "ingredients": ["arborio rice", "mushrooms", "onion", "white wine", "parmesan", "butter", "vegetable broth"],
+    "steps": [
+      "Sauté mushrooms and set aside",
+      "Cook onion until translucent",
+      "Add rice and toast for 2 minutes",
+      "Add wine and stir until absorbed",
+      "Gradually add broth, stirring constantly",
+      "Finish with butter and parmesan"
+    ],
+    "nutrition": {
+      "calories": 385,
+      "protein": 10
+    },
+    "servings": 3,
+    "tags": ["italian", "vegetarian", "comfort"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-007",
+    "title": "Thai Green Curry",
+    "image": "/placeholder.svg",
+    "time": 30,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["chicken", "green curry paste", "coconut milk", "eggplant", "basil", "fish sauce", "lime"],
+    "steps": [
+      "Heat curry paste in a pan",
+      "Add coconut milk and bring to a simmer",
+      "Add chicken and cook through",
+      "Add vegetables and simmer",
+      "Season with fish sauce and lime"
+    ],
+    "nutrition": {
+      "calories": 420,
+      "protein": 28
+    },
+    "servings": 4,
+    "tags": ["thai", "curry", "spicy"],
+    "cuisine": "Thai"
+  },
+  {
+    "id": "recipe-008",
+    "title": "Mediterranean Quinoa Bowl",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.7,
+    "ingredients": ["quinoa", "cucumber", "tomatoes", "feta", "olives", "olive oil", "lemon", "herbs"],
+    "steps": [
+      "Cook quinoa according to package",
+      "Dice vegetables",
+      "Mix quinoa with vegetables",
+      "Top with feta and olives",
+      "Drizzle with olive oil and lemon"
+    ],
+    "nutrition": {
+      "calories": 380,
+      "protein": 14
+    },
+    "servings": 2,
+    "tags": ["vegetarian", "healthy", "mediterranean", "bowl"],
+    "cuisine": "Mediterranean"
+  },
+  {
+    "id": "recipe-009",
+    "title": "BBQ Pulled Pork",
+    "image": "/placeholder.svg",
+    "time": 240,
+    "difficulty": "Medium",
+    "rating": 4.9,
+    "ingredients": ["pork shoulder", "bbq sauce", "brown sugar", "paprika", "garlic", "onion", "buns"],
+    "steps": [
+      "Rub pork with spices",
+      "Slow cook for 4 hours",
+      "Shred the meat",
+      "Mix with BBQ sauce",
+      "Serve on buns"
+    ],
+    "nutrition": {
+      "calories": 450,
+      "protein": 32
+    },
+    "servings": 6,
+    "tags": ["bbq", "pork", "slow-cooked"],
+    "cuisine": "American"
+  },
+  {
+    "id": "recipe-010",
+    "title": "Chocolate Chip Cookies",
+    "image": "/placeholder.svg",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.9,
+    "ingredients": ["flour", "butter", "sugar", "eggs", "chocolate chips", "vanilla", "baking soda"],
+    "steps": [
+      "Cream butter and sugars",
+      "Add eggs and vanilla",
+      "Mix in dry ingredients",
+      "Fold in chocolate chips",
+      "Bake at 375°F for 10-12 minutes"
+    ],
+    "nutrition": {
+      "calories": 150,
+      "protein": 2
+    },
+    "servings": 24,
+    "tags": ["dessert", "baking", "sweet"],
+    "cuisine": "American"
+  },
+  {
+    "id": "recipe-011",
+    "title": "Pad Thai",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "ingredients": ["rice noodles", "shrimp", "eggs", "bean sprouts", "peanuts", "lime", "fish sauce", "tamarind"],
+    "steps": [
+      "Soak noodles until pliable",
+      "Stir-fry shrimp and set aside",
+      "Scramble eggs in the same pan",
+      "Add noodles and sauce",
+      "Toss with vegetables and serve"
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": 24
+    },
+    "servings": 3,
+    "tags": ["thai", "noodles", "seafood"],
+    "cuisine": "Thai"
+  },
+  {
+    "id": "recipe-012",
+    "title": "Greek Salad",
+    "image": "/placeholder.svg",
+    "time": 10,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["tomatoes", "cucumber", "red onion", "feta", "olives", "olive oil", "oregano", "lemon"],
+    "steps": [
+      "Dice tomatoes and cucumber",
+      "Slice red onion",
+      "Combine vegetables",
+      "Top with feta and olives",
+      "Dress with olive oil and lemon"
+    ],
+    "nutrition": {
+      "calories": 180,
+      "protein": 6
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "salad", "mediterranean", "quick"],
+    "cuisine": "Mediterranean"
+  },
+  {
+    "id": "recipe-013",
+    "title": "Beef Stroganoff",
+    "image": "/placeholder.svg",
+    "time": 35,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["beef strips", "mushrooms", "sour cream", "onion", "beef broth", "flour", "butter", "egg noodles"],
+    "steps": [
+      "Brown beef strips and set aside",
+      "Sauté mushrooms and onions",
+      "Add flour and broth to make sauce",
+      "Return beef and simmer",
+      "Stir in sour cream and serve over noodles"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 35
+    },
+    "servings": 4,
+    "tags": ["russian", "beef", "comfort"],
+    "cuisine": "Russian"
+  },
+  {
+    "id": "recipe-014",
+    "title": "Fish Tacos",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.7,
+    "ingredients": ["white fish", "tortillas", "cabbage", "lime", "cilantro", "avocado", "sour cream"],
+    "steps": [
+      "Season and pan-fry fish",
+      "Warm tortillas",
+      "Shred cabbage for slaw",
+      "Assemble tacos with fish and toppings",
+      "Drizzle with lime and sour cream"
+    ],
+    "nutrition": {
+      "calories": 280,
+      "protein": 24
+    },
+    "servings": 4,
+    "tags": ["seafood", "mexican", "healthy"],
+    "cuisine": "Mexican"
+  },
+  {
+    "id": "recipe-015",
+    "title": "Chicken Tikka Masala",
+    "image": "/placeholder.svg",
+    "time": 45,
+    "difficulty": "Medium",
+    "rating": 4.9,
+    "ingredients": ["chicken", "tomatoes", "cream", "garam masala", "ginger", "garlic", "onion", "yogurt"],
+    "steps": [
+      "Marinate chicken in yogurt and spices",
+      "Grill or pan-fry chicken",
+      "Make tomato-based sauce",
+      "Add cream and spices",
+      "Simmer chicken in sauce"
+    ],
+    "nutrition": {
+      "calories": 425,
+      "protein": 32
+    },
+    "servings": 4,
+    "tags": ["indian", "chicken", "curry"],
+    "cuisine": "Indian"
+  },
+  {
+    "id": "recipe-016",
+    "title": "Caesar Salad",
+    "image": "/placeholder.svg",
+    "time": 15,
+    "difficulty": "Easy",
+    "rating": 4.5,
+    "ingredients": ["romaine lettuce", "parmesan", "croutons", "anchovies", "lemon", "garlic", "olive oil", "egg"],
+    "steps": [
+      "Wash and chop romaine",
+      "Make Caesar dressing",
+      "Toss lettuce with dressing",
+      "Top with parmesan and croutons"
+    ],
+    "nutrition": {
+      "calories": 220,
+      "protein": 8
+    },
+    "servings": 4,
+    "tags": ["salad", "italian", "classic"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-017",
+    "title": "Beef Burgers",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.8,
+    "ingredients": ["ground beef", "burger buns", "lettuce", "tomato", "onion", "cheese", "pickles"],
+    "steps": [
+      "Form beef into patties",
+      "Season and grill or pan-fry",
+      "Toast buns",
+      "Assemble with toppings"
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": 28
+    },
+    "servings": 4,
+    "tags": ["beef", "american", "grilled"],
+    "cuisine": "American"
+  },
+  {
+    "id": "recipe-018",
+    "title": "Vegetable Lasagna",
+    "image": "/placeholder.svg",
+    "time": 60,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "ingredients": ["lasagna noodles", "ricotta", "mozzarella", "spinach", "zucchini", "tomato sauce", "basil"],
+    "steps": [
+      "Cook lasagna noodles",
+      "Layer with vegetables and cheese",
+      "Repeat layers",
+      "Bake at 375°F for 45 minutes"
+    ],
+    "nutrition": {
+      "calories": 385,
+      "protein": 18
+    },
+    "servings": 6,
+    "tags": ["vegetarian", "italian", "baking"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-019",
+    "title": "Teriyaki Salmon",
+    "image": "/placeholder.svg",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.8,
+    "ingredients": ["salmon fillets", "soy sauce", "honey", "ginger", "garlic", "sesame seeds", "rice"],
+    "steps": [
+      "Make teriyaki sauce",
+      "Marinate salmon",
+      "Pan-sear salmon skin-side down",
+      "Glaze with teriyaki sauce",
+      "Serve over rice"
+    ],
+    "nutrition": {
+      "calories": 380,
+      "protein": 34
+    },
+    "servings": 4,
+    "tags": ["seafood", "japanese", "healthy"],
+    "cuisine": "Japanese"
+  },
+  {
+    "id": "recipe-020",
+    "title": "French Onion Soup",
+    "image": "/placeholder.svg",
+    "time": 50,
+    "difficulty": "Medium",
+    "rating": 4.6,
+    "ingredients": ["onions", "beef broth", "butter", "white wine", "thyme", "gruyere", "bread"],
+    "steps": [
+      "Caramelize onions slowly",
+      "Deglaze with wine",
+      "Add broth and thyme",
+      "Simmer for 30 minutes",
+      "Top with bread and cheese, broil"
+    ],
+    "nutrition": {
+      "calories": 285,
+      "protein": 12
+    },
+    "servings": 4,
+    "tags": ["french", "soup", "comfort"],
+    "cuisine": "French"
+  },
+  {
+    "id": "recipe-021",
+    "title": "Chicken Biryani",
+    "image": "/placeholder.svg",
+    "time": 60,
+    "difficulty": "Hard",
+    "rating": 4.9,
+    "ingredients": ["basmati rice", "chicken", "yogurt", "saffron", "onions", "ginger", "garlic", "spices"],
+    "steps": [
+      "Marinate chicken in yogurt and spices",
+      "Parboil rice with saffron",
+      "Layer chicken and rice",
+      "Cook on dum (steam) for 30 minutes"
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": 28
+    },
+    "servings": 6,
+    "tags": ["indian", "chicken", "rice", "spicy"],
+    "cuisine": "Indian"
+  },
+  {
+    "id": "recipe-022",
+    "title": "Margherita Pizza",
+    "image": "/placeholder.svg",
+    "time": 30,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["pizza dough", "tomato sauce", "mozzarella", "basil", "olive oil", "garlic"],
+    "steps": [
+      "Preheat oven to 475°F",
+      "Roll out dough",
+      "Top with sauce and cheese",
+      "Bake for 12-15 minutes",
+      "Garnish with fresh basil"
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": 14
+    },
+    "servings": 4,
+    "tags": ["italian", "pizza", "vegetarian"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-023",
+    "title": "Korean Bibimbap",
+    "image": "/placeholder.svg",
+    "time": 35,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "ingredients": ["rice", "beef", "eggs", "spinach", "carrots", "mushrooms", "gochujang", "sesame oil"],
+    "steps": [
+      "Cook rice",
+      "Prepare vegetables separately",
+      "Cook beef with soy sauce",
+      "Fry egg",
+      "Arrange in bowl and serve"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 22
+    },
+    "servings": 2,
+    "tags": ["korean", "beef", "bowl"],
+    "cuisine": "Korean"
+  },
+  {
+    "id": "recipe-024",
+    "title": "Lentil Soup",
+    "image": "/placeholder.svg",
+    "time": 30,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["lentils", "onion", "carrots", "celery", "garlic", "cumin", "lemon", "vegetable broth"],
+    "steps": [
+      "Sauté vegetables",
+      "Add lentils and broth",
+      "Simmer for 25 minutes",
+      "Season with cumin and lemon"
+    ],
+    "nutrition": {
+      "calories": 220,
+      "protein": 14
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "vegan", "soup", "healthy"],
+    "cuisine": "Middle Eastern"
+  },
+  {
+    "id": "recipe-025",
+    "title": "Shrimp Scampi",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.8,
+    "ingredients": ["shrimp", "pasta", "garlic", "white wine", "butter", "lemon", "parsley", "red pepper flakes"],
+    "steps": [
+      "Cook pasta",
+      "Sauté shrimp and garlic",
+      "Add wine and reduce",
+      "Toss with pasta and butter",
+      "Garnish with parsley and lemon"
+    ],
+    "nutrition": {
+      "calories": 420,
+      "protein": 28
+    },
+    "servings": 3,
+    "tags": ["seafood", "italian", "pasta"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-026",
+    "title": "Butter Chicken",
+    "image": "/placeholder.svg",
+    "time": 40,
+    "difficulty": "Medium",
+    "rating": 4.9,
+    "ingredients": ["chicken", "butter", "tomatoes", "cream", "garam masala", "ginger", "garlic", "onion", "fenugreek"],
+    "steps": [
+      "Marinate chicken in yogurt and spices",
+      "Cook chicken until tender",
+      "Make tomato-based sauce with butter",
+      "Add cream and fenugreek leaves",
+      "Simmer chicken in sauce"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 30
+    },
+    "servings": 4,
+    "tags": ["indian", "chicken", "curry", "popular"],
+    "cuisine": "Indian"
+  },
+  {
+    "id": "recipe-027",
+    "title": "Sushi Rolls",
+    "image": "/placeholder.svg",
+    "time": 45,
+    "difficulty": "Hard",
+    "rating": 4.8,
+    "ingredients": ["sushi rice", "nori", "cucumber", "avocado", "salmon", "rice vinegar", "wasabi", "soy sauce"],
+    "steps": [
+      "Cook and season sushi rice",
+      "Slice vegetables and fish",
+      "Place nori on bamboo mat",
+      "Spread rice and add fillings",
+      "Roll tightly and slice"
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": 12
+    },
+    "servings": 4,
+    "tags": ["japanese", "seafood", "sushi"],
+    "cuisine": "Japanese"
+  },
+  {
+    "id": "recipe-028",
+    "title": "Chicken Fajitas",
+    "image": "/placeholder.svg",
+    "time": 30,
+    "difficulty": "Easy",
+    "rating": 4.7,
+    "ingredients": ["chicken strips", "bell peppers", "onion", "tortillas", "lime", "cumin", "chili powder", "sour cream"],
+    "steps": [
+      "Marinate chicken with spices",
+      "Sauté peppers and onions",
+      "Cook chicken until done",
+      "Serve in warm tortillas",
+      "Top with sour cream and lime"
+    ],
+    "nutrition": {
+      "calories": 380,
+      "protein": 28
+    },
+    "servings": 4,
+    "tags": ["mexican", "chicken", "quick"],
+    "cuisine": "Mexican"
+  },
+  {
+    "id": "recipe-029",
+    "title": "Beef Wellington",
+    "image": "/placeholder.svg",
+    "time": 120,
+    "difficulty": "Hard",
+    "rating": 4.9,
+    "ingredients": ["beef fillet", "puff pastry", "mushrooms", "prosciutto", "mustard", "egg", "thyme"],
+    "steps": [
+      "Sear beef fillet",
+      "Make mushroom duxelles",
+      "Wrap beef in prosciutto and duxelles",
+      "Wrap in puff pastry",
+      "Bake at 400°F for 25 minutes"
+    ],
+    "nutrition": {
+      "calories": 520,
+      "protein": 35
+    },
+    "servings": 4,
+    "tags": ["british", "beef", "elegant"],
+    "cuisine": "British"
+  },
+  {
+    "id": "recipe-030",
+    "title": "Vegetable Curry",
+    "image": "/placeholder.svg",
+    "time": 35,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["potatoes", "cauliflower", "peas", "tomatoes", "curry powder", "coconut milk", "ginger", "garlic"],
+    "steps": [
+      "Sauté spices and aromatics",
+      "Add vegetables and cook",
+      "Pour in coconut milk",
+      "Simmer until vegetables are tender",
+      "Season and serve"
+    ],
+    "nutrition": {
+      "calories": 285,
+      "protein": 8
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "vegan", "indian", "curry"],
+    "cuisine": "Indian"
+  },
+  {
+    "id": "recipe-031",
+    "title": "Ramen Noodles",
+    "image": "/placeholder.svg",
+    "time": 30,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "ingredients": ["ramen noodles", "pork", "eggs", "scallions", "miso", "soy sauce", "nori", "bamboo shoots"],
+    "steps": [
+      "Make broth with miso and soy sauce",
+      "Cook ramen noodles",
+      "Prepare soft-boiled eggs",
+      "Slice pork and scallions",
+      "Assemble bowls with toppings"
+    ],
+    "nutrition": {
+      "calories": 485,
+      "protein": 22
+    },
+    "servings": 2,
+    "tags": ["japanese", "noodles", "soup"],
+    "cuisine": "Japanese"
+  },
+  {
+    "id": "recipe-032",
+    "title": "Eggplant Parmesan",
+    "image": "/placeholder.svg",
+    "time": 50,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "ingredients": ["eggplant", "mozzarella", "parmesan", "tomato sauce", "basil", "eggs", "breadcrumbs", "flour"],
+    "steps": [
+      "Slice and salt eggplant",
+      "Bread and fry eggplant slices",
+      "Layer with sauce and cheese",
+      "Bake at 375°F for 30 minutes",
+      "Garnish with fresh basil"
+    ],
+    "nutrition": {
+      "calories": 385,
+      "protein": 18
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "italian", "baking"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-033",
+    "title": "Chicken Satay",
+    "image": "/placeholder.svg",
+    "time": 40,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["chicken thighs", "peanut butter", "soy sauce", "lime", "coconut milk", "curry powder", "bamboo skewers"],
+    "steps": [
+      "Marinate chicken in spices",
+      "Thread onto skewers",
+      "Grill until cooked through",
+      "Make peanut sauce",
+      "Serve with sauce and lime"
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": 28
+    },
+    "servings": 4,
+    "tags": ["thai", "chicken", "grilled"],
+    "cuisine": "Thai"
+  },
+  {
+    "id": "recipe-034",
+    "title": "Beef and Broccoli",
+    "image": "/placeholder.svg",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["beef strips", "broccoli", "soy sauce", "ginger", "garlic", "cornstarch", "sesame oil", "rice"],
+    "steps": [
+      "Marinate beef with soy sauce",
+      "Stir-fry beef until browned",
+      "Add broccoli and cook",
+      "Make sauce with soy and ginger",
+      "Toss everything together and serve"
+    ],
+    "nutrition": {
+      "calories": 380,
+      "protein": 32
+    },
+    "servings": 3,
+    "tags": ["chinese", "beef", "quick"],
+    "cuisine": "Chinese"
+  },
+  {
+    "id": "recipe-035",
+    "title": "Caprese Salad",
+    "image": "/placeholder.svg",
+    "time": 10,
+    "difficulty": "Easy",
+    "rating": 4.7,
+    "ingredients": ["tomatoes", "mozzarella", "basil", "olive oil", "balsamic", "salt", "pepper"],
+    "steps": [
+      "Slice tomatoes and mozzarella",
+      "Arrange alternating slices",
+      "Tuck basil leaves between",
+      "Drizzle with olive oil and balsamic",
+      "Season with salt and pepper"
+    ],
+    "nutrition": {
+      "calories": 220,
+      "protein": 12
+    },
+    "servings": 4,
+    "tags": ["vegetarian", "italian", "salad", "quick"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-036",
+    "title": "Chicken Korma",
+    "image": "/placeholder.svg",
+    "time": 45,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["chicken", "yogurt", "cream", "almonds", "onions", "ginger", "garlic", "spices", "cardamom"],
+    "steps": [
+      "Marinate chicken in yogurt",
+      "Sauté onions until golden",
+      "Add spices and aromatics",
+      "Cook chicken in sauce",
+      "Finish with cream and almonds"
+    ],
+    "nutrition": {
+      "calories": 445,
+      "protein": 30
+    },
+    "servings": 4,
+    "tags": ["indian", "chicken", "curry", "mild"],
+    "cuisine": "Indian"
+  },
+  {
+    "id": "recipe-037",
+    "title": "Penne Arrabbiata",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["penne pasta", "tomatoes", "garlic", "red chili", "olive oil", "parsley", "parmesan"],
+    "steps": [
+      "Cook pasta until al dente",
+      "Sauté garlic and chili",
+      "Add tomatoes and cook",
+      "Toss pasta with sauce",
+      "Garnish with parsley and parmesan"
+    ],
+    "nutrition": {
+      "calories": 385,
+      "protein": 12
+    },
+    "servings": 3,
+    "tags": ["vegetarian", "italian", "pasta", "spicy"],
+    "cuisine": "Italian"
+  },
+  {
+    "id": "recipe-038",
+    "title": "Lamb Kofta",
+    "image": "/placeholder.svg",
+    "time": 35,
+    "difficulty": "Medium",
+    "rating": 4.7,
+    "ingredients": ["ground lamb", "onion", "parsley", "cumin", "coriander", "yogurt", "pita", "tomatoes"],
+    "steps": [
+      "Mix lamb with spices and herbs",
+      "Form into kofta shapes",
+      "Grill or pan-fry until cooked",
+      "Serve in pita with yogurt",
+      "Top with fresh tomatoes"
+    ],
+    "nutrition": {
+      "calories": 420,
+      "protein": 28
+    },
+    "servings": 4,
+    "tags": ["middle eastern", "lamb", "grilled"],
+    "cuisine": "Middle Eastern"
+  },
+  {
+    "id": "recipe-039",
+    "title": "Chicken Noodle Soup",
+    "image": "/placeholder.svg",
+    "time": 40,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["chicken", "noodles", "carrots", "celery", "onion", "chicken broth", "thyme", "bay leaves"],
+    "steps": [
+      "Cook chicken in broth",
+      "Remove and shred chicken",
+      "Add vegetables and cook",
+      "Add noodles and cook",
+      "Return chicken and season"
+    ],
+    "nutrition": {
+      "calories": 285,
+      "protein": 22
+    },
+    "servings": 4,
+    "tags": ["american", "chicken", "soup", "comfort"],
+    "cuisine": "American"
+  },
+  {
+    "id": "recipe-040",
+    "title": "Tandoori Chicken",
+    "image": "/placeholder.svg",
+    "time": 50,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["chicken", "yogurt", "tandoori masala", "lemon", "ginger", "garlic", "paprika", "cumin"],
+    "steps": [
+      "Make deep cuts in chicken",
+      "Marinate in yogurt and spices",
+      "Refrigerate for 4 hours",
+      "Grill or bake until cooked",
+      "Serve with lemon and onions"
+    ],
+    "nutrition": {
+      "calories": 295,
+      "protein": 35
+    },
+    "servings": 4,
+    "tags": ["indian", "chicken", "grilled", "spicy"],
+    "cuisine": "Indian"
+  },
+  {
+    "id": "recipe-041",
+    "title": "Pancakes",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.7,
+    "ingredients": ["flour", "milk", "eggs", "butter", "sugar", "baking powder", "vanilla", "maple syrup"],
+    "steps": [
+      "Mix dry ingredients",
+      "Whisk wet ingredients",
+      "Combine until just mixed",
+      "Cook on griddle until bubbles form",
+      "Flip and cook until golden"
+    ],
+    "nutrition": {
+      "calories": 220,
+      "protein": 6
+    },
+    "servings": 4,
+    "tags": ["breakfast", "american", "sweet"],
+    "cuisine": "American"
+  },
+  {
+    "id": "recipe-042",
+    "title": "Chicken Shawarma",
+    "image": "/placeholder.svg",
+    "time": 60,
+    "difficulty": "Medium",
+    "rating": 4.8,
+    "ingredients": ["chicken thighs", "yogurt", "lemon", "garlic", "cumin", "paprika", "pita", "tahini"],
+    "steps": [
+      "Marinate chicken overnight",
+      "Roast or grill chicken",
+      "Slice into thin strips",
+      "Warm pita bread",
+      "Serve with tahini sauce"
+    ],
+    "nutrition": {
+      "calories": 385,
+      "protein": 32
+    },
+    "servings": 4,
+    "tags": ["middle eastern", "chicken", "grilled"],
+    "cuisine": "Middle Eastern"
+  },
+  {
+    "id": "recipe-043",
+    "title": "Beef Tacos",
+    "image": "/placeholder.svg",
+    "time": 25,
+    "difficulty": "Easy",
+    "rating": 4.9,
+    "ingredients": ["ground beef", "tortillas", "onion", "cilantro", "lime", "cumin", "chili powder", "cheese", "lettuce"],
+    "steps": [
+      "Brown ground beef with spices",
+      "Drain excess fat",
+      "Warm tortillas",
+      "Fill with beef and toppings",
+      "Garnish with cilantro and lime"
+    ],
+    "nutrition": {
+      "calories": 340,
+      "protein": 24
+    },
+    "servings": 4,
+    "tags": ["mexican", "beef", "quick"],
+    "cuisine": "Mexican"
+  },
+  {
+    "id": "recipe-044",
+    "title": "Vegetable Fried Rice",
+    "image": "/placeholder.svg",
+    "time": 20,
+    "difficulty": "Easy",
+    "rating": 4.6,
+    "ingredients": ["rice", "eggs", "peas", "carrots", "soy sauce", "sesame oil", "scallions", "garlic"],
+    "steps": [
+      "Use day-old rice",
+      "Scramble eggs and set aside",
+      "Stir-fry vegetables",
+      "Add rice and soy sauce",
+      "Toss with eggs and serve"
+    ],
+    "nutrition": {
+      "calories": 320,
+      "protein": 10
+    },
+    "servings": 3,
+    "tags": ["vegetarian", "chinese", "quick"],
+    "cuisine": "Chinese"
+  },
+  {
+    "id": "recipe-045",
+    "title": "Chocolate Brownies",
+    "image": "/placeholder.svg",
+    "time": 35,
+    "difficulty": "Easy",
+    "rating": 4.9,
+    "ingredients": ["chocolate", "butter", "sugar", "eggs", "flour", "cocoa powder", "vanilla", "walnuts"],
+    "steps": [
+      "Melt chocolate and butter",
+      "Whisk in sugar and eggs",
+      "Fold in dry ingredients",
+      "Add walnuts if desired",
+      "Bake at 350°F for 25 minutes"
+    ],
+    "nutrition": {
+      "calories": 280,
+      "protein": 4
+    },
+    "servings": 16,
+    "tags": ["dessert", "baking", "sweet"],
+    "cuisine": "American"
+  }
+]

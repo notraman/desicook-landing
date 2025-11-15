@@ -34,34 +34,39 @@ const features = [
 
 const FeatureBoxes = () => {
   return (
-    <section className="py-28 md:py-36 relative">
-      <div className="container mx-auto px-6">
-        {/* Section title - Origin-inspired */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-dc-cream mb-4 tracking-tight">
+    <section id="features" className="py-24 md:py-32 relative">
+      <div className="container mx-auto px-6 max-w-[1200px]">
+        {/* Section title - Origin-grade typography */}
+        <div className="text-center mb-20 animate-fade-up">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-dc-cream mb-6 tracking-[-0.02em] leading-tight">
             Powerful features for modern cooking
           </h2>
-          <p className="text-lg text-dc-cream/60 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-dc-cream/60 max-w-3xl mx-auto leading-relaxed">
             Everything you need to transform your ingredients into culinary excellence
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="glass glass-hover glass-reflection p-10 space-y-5 group cursor-pointer ambient-glow"
+              className="glass glass-hover glass-reflection p-12 space-y-6 group cursor-pointer ambient-glow relative"
               style={{
-                animationDelay: `${index * 0.1}s`
+                animationDelay: `${index * 0.15}s`
               }}
             >
-              {/* Icon - Origin-inspired larger, lighter */}
-              <div className="w-16 h-16 rounded-2xl glass flex items-center justify-center text-dc-gold/90 group-hover:scale-110 group-hover:text-dc-gold transition-all duration-500">
-                {feature.icon}
+              {/* Subtle ambient glow behind each card */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-dc-gold/3 to-dc-burgundy/3 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+              
+              {/* Icon - Origin-style minimal thin-line */}
+              <div className="w-20 h-20 rounded-2xl glass flex items-center justify-center text-dc-gold/80 group-hover:scale-110 group-hover:text-dc-gold transition-all duration-300">
+                <div className="[&>svg]:stroke-[1.5]">
+                  {feature.icon}
+                </div>
               </div>
               
               {/* Title */}
-              <h3 className="text-2xl font-bold text-dc-cream leading-tight tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-bold text-dc-cream leading-tight tracking-[-0.01em]">
                 {feature.title}
               </h3>
               
@@ -70,14 +75,14 @@ const FeatureBoxes = () => {
                 {feature.description}
               </p>
               
-              {/* Learn More Link - Origin-inspired subtle */}
+              {/* Learn More Link - Origin-style quiet */}
               <a 
                 href={feature.link}
-                className="inline-flex items-center gap-2 text-dc-gold/80 font-medium group-hover:gap-3 group-hover:text-dc-gold transition-all duration-300 text-sm tracking-wide"
+                className="inline-flex items-center gap-2 text-dc-gold/70 font-medium group-hover:gap-3 group-hover:text-dc-gold transition-all duration-300 text-sm tracking-wide pt-2"
               >
                 Learn more
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
             </div>
