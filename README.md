@@ -1,29 +1,29 @@
 # DesiCook - Smart Recipe Generator
 
-A modern recipe discovery platform that helps users find recipes based on available ingredients. Features AI-powered ingredient detection, smart recipe matching, and personalized suggestions.
+**Live Demo:** [https://desicook-9rct.vercel.app/](https://desicook-9rct.vercel.app/)
+
+> A fast, minimal, engineering-focused recipe discovery tool built to answer one question reliably: *“What can I cook right now?”* Designed with execution, clarity, and zero‑fluff architecture.
+
+A modern, AI-assisted recipe discovery platform that helps users instantly find recipes based on the ingredients they already have. Built with speed, clarity, and usefulness in mind.
+
+---
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- Node.js 18+ and npm
-- Supabase project ([create one here](https://supabase.com))
-
-### Installation
+DesiCook is intentionally simple to install and run. No complex setup. No heavy tooling.
 
 ```bash
-# Clone the repository
-git clone <YOUR_GIT_URL>
+git clone (https://github.com/notraman/desicook-landing)
 cd desicook-landing
-
-# Install dependencies
 npm install
-
-# Set up environment variables
-cp .env.example .env  # Edit with your Supabase credentials
+npm run dev
 ```
 
-### Environment Variables
+You're ready.
+
+---
+
+## 🌱 Environment Variables
 
 Create a `.env` file in the project root:
 
@@ -32,20 +32,22 @@ Create a `.env` file in the project root:
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key-here
 
-# For ETL scripts (server-side only)
+# Server-side only
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 
-# Image API Keys (Optional - for better recipe images)
+# Optional image APIs
 UNSPLASH_ACCESS_KEY=your-unsplash-key
 PEXELS_API_KEY=your-pexels-key
 PIXABAY_API_KEY=your-pixabay-key
 ```
 
-### Development
+---
+
+## ⚙️ Development
 
 ```bash
-# Start development server
+# Start dev server
 npm run dev
 
 # Build for production
@@ -55,126 +57,147 @@ npm run build
 npm run preview
 ```
 
+---
+
+## 🖼️ Screenshots (Add your images here)
+
+
+<img width="1753" height="752" alt="Screenshot 2025-11-15 164614" src="https://github.com/user-attachments/assets/738f7005-0505-43fb-9c66-10702534ab14" />
+<img width="1753" height="752" alt="Screenshot 2025-11-15 164614" src="https://github.com/user-attachments/assets/a6ca641e-1e17-4c96-af5f-a9659f6d4063" />
+
+
+
+
 ## 📦 Deployment
 
-### Build for Production
+### **Build for Production**
 
 ```bash
 npm run build
 ```
 
-The production build will be in the `dist/` directory, ready to deploy to any static hosting service.
+Deploy the `dist/` folder to your hosting provider.
 
-### Deploy to Vercel
+### **Deploy to Vercel**
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-3. Follow the prompts
+1. `npm i -g vercel`
+2. `vercel`
 
-### Deploy to Netlify
+### **Deploy to Netlify**
 
-1. Install Netlify CLI: `npm i -g netlify-cli`
-2. Run: `netlify deploy --prod`
-3. Follow the prompts
+1. `npm i -g netlify-cli`
+2. `netlify deploy --prod`
 
-### Deploy to GitHub Pages
+### **Deploy to GitHub Pages**
 
-1. Build the project: `npm run build`
-2. Configure GitHub Actions or use `gh-pages` package
-3. Set base path in `vite.config.ts` if needed
+1. `npm run build`
+2. Configure GitHub Actions or use `gh-pages`
 
-### Environment Variables in Production
+### **Production Variables**
 
-Make sure to set these environment variables in your hosting platform:
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_PUBLISHABLE_KEY`
+Set the following:
+
+* `VITE_SUPABASE_URL`
+* `VITE_SUPABASE_PUBLISHABLE_KEY`
+
+---
 
 ## 🗄️ Database Setup
 
-### 1. Run Migrations
+### **1. Run Migrations**
 
-1. Open Supabase Dashboard → SQL Editor
-2. Run migrations in order:
-   - `supabase/migrations/000_SETUP_ALL.sql` (auth tables)
-   - `supabase/migrations/001_create_recipes.sql` (recipes tables)
-   - `supabase/migrations/002_history_table.sql` (history table)
+In Supabase SQL Editor, run these in order:
 
-### 2. Seed Recipes (Optional)
+* `000_SETUP_ALL.sql`
+* `001_create_recipes.sql`
+* `002_history_table.sql`
+
+### **2. Seed Recipes (Optional)**
 
 ```bash
-# Test with sample recipes
+# Sample recipes
 node etl/seed_recipes.js --sample
 
-# Full seed
+# Full dataset
 node etl/seed_recipes.js --full
 ```
 
+---
+
 ## 🔧 Edge Functions
 
-### Deploy Edge Functions
+### **Ingredient Recognition (recognize)**
 
-1. **Image Recognition** (`recognize`):
-   ```bash
-   supabase functions deploy recognize
-   ```
-   Set secrets: `GEMINI_API_KEY`, `HF_API_KEY`
+```bash
+supabase functions deploy recognize
+```
 
-2. **Recipe Search** (`search-by-ingredients`):
-   ```bash
-   supabase functions deploy search-by-ingredients
-   ```
+Secrets: `GEMINI_API_KEY`, `HF_API_KEY`
 
-3. **AI Suggestions** (`suggest-recipes`):
-   ```bash
-   supabase functions deploy suggest-recipes
-   ```
-   Set secret: `GEMINI_API_KEY`
+### **Recipe Search (search-by-ingredients)**
+
+```bash
+supabase functions deploy search-by-ingredients
+```
+
+### **AI Suggestions (suggest-recipes)**
+
+```bash
+supabase functions deploy suggest-recipes
+```
+
+Secret: `GEMINI_API_KEY`
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 18, TypeScript, Vite
-- **UI Components**: shadcn-ui, Radix UI, Tailwind CSS
-- **Backend**: Supabase (Database, Auth, Storage, Edge Functions)
-- **AI/ML**: TensorFlow.js, HuggingFace, Google Gemini
-- **Routing**: React Router v6
-- **State Management**: React Query
+* React 18, TypeScript, Vite
+* Tailwind CSS, shadcn-ui
+* Supabase (DB, Auth, Storage, Edge Functions)
+* AI Models: TensorFlow.js, HuggingFace, Google Gemini
+* React Router v6, React Query
+
+---
 
 ## 📁 Project Structure
 
 ```
 ├── src/
-│   ├── components/     # React components
-│   ├── pages/         # Page components
-│   ├── lib/           # Utilities and services
-│   ├── hooks/         # Custom React hooks
-│   └── integrations/  # Supabase client setup
+│   ├── components/
+│   ├── pages/
+│   ├── lib/
+│   ├── hooks/
+│   └── integrations/
 ├── supabase/
-│   ├── functions/     # Edge Functions
-│   └── migrations/    # Database migrations
-├── etl/              # ETL scripts for recipe seeding
-└── public/           # Static assets
+│   ├── functions/
+│   └── migrations/
+├── etl/
+└── public/
 ```
+
+---
 
 ## 🔐 Security Notes
 
-- Never commit `.env` files or API keys
-- Use `VITE_` prefix only for client-side environment variables
-- Edge Function secrets should NOT have `VITE_` prefix
-- Service role key should only be used server-side
+* Never commit `.env` files
+* Only expose variables prefixed with `VITE_`
+* Service role key must remain server-side
+* Edge function secrets should never use `VITE_`
+
+---
 
 ## 📝 License
 
-This project uses free/public domain images from Unsplash, Pexels, and Pixabay.
+Uses free/public images from Unsplash, Pexels, and Pixabay.
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
+1. Fork repository
 2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+3. Push changes
+4. Open a PR
 
-## 📚 Additional Resources
-
-- [Supabase Documentation](https://supabase.com/docs)
-- [Vite Documentation](https://vitejs.dev)
-- [React Documentation](https://react.dev)
+*Built with intention and simplicity , the way good tools should be.*
