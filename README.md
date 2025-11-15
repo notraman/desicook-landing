@@ -123,13 +123,7 @@ This creates:
 
 ### Running the ETL
 
-#### Install Dependencies
-
-The ETL script requires `node-fetch` for image downloads:
-
-```bash
-npm install node-fetch@2
-```
+**Requirements**: Node.js 18+ (for native `fetch` support)
 
 #### Test Mode (Sample Recipes)
 
